@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+# Runs the store on this computer to look at it, with Docker only: no PHP, MySQL or Node needed.
+#
+#   bin/preview          start (the first run takes a few minutes), then open http://localhost:8000
+#   bin/preview stop     stop it; the data is kept for next time
+#   bin/preview reset    start again with fresh demo data
+#
+# JUDE_PORT=8080 bin/preview uses another port if 8000 is taken.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+PHP_IMAGE=chialab/php:8.5
+NODE_IMAGE="${NODE_IMAGE:-node:24-alpine}"
+PORT="${JUDE_PORT:-8000}"
+URL="http://localhost:$PORT"
+SEEDED=storage/app/.preview-seeded
+
+say() { printf '\n==> %s\n' "$1"; }
+
+if ! command -v docker >/dev/null 2>&1; then
+  echo "Docker is not installed. Install Docker Desktop from https://www.docker.com/products/docker-desktop/ and run this again."
+  exit 1
+fi
+if ! docker info >/dev/null 2>&1; then
+  echo "Docker is installed but not running. Open Docker Desktop (or run 'colima start'), wait until it is running, then run this again."
+  exit 1
+fi
+# Docker Desktop includes Compose; Colima and other setups may not.
+if ! docker compose version >/dev/null 2>&1; then
+  echo "Docker Compose is missing. With Homebrew: 'brew install docker-compose', then add"
+  echo '  "cliPluginsExtraDirs": ["/opt/homebrew/lib/docker/cli-plugins"]'
+  echo "to ~/.docker/config.json, and run this again."
+  exit 1
+fi
+
+case "${1:-start}" in
+  stop) docker compose stop; exit 0 ;;
+  reset) rm -f "$SEEDED" ;;
+  start) ;;
+  *) echo "Usage: bin/preview [start|stop|reset]"; exit 1 ;;
+esac
+
+in_php() { docker run --rm -v "$PWD:/app" -w /app --entrypoint "$1" "$PHP_IMAGE" "${@:2}"; }
+
+# Node 20.19+ or 22.12+ on this computer builds the styles directly; otherwise a Node container does.
+node_ok() {
+  command -v node >/dev/null 2>&1 || return 1
+  node -e 'const [a,b]=process.versions.node.split(".").map(Number); process.exit(a>22||(a===22&&b>=12)||(a===20&&b>=19)?0:1)'
+}
+
+say "Installing the PHP packages"
+in_php composer install --no-interaction --no-progress
+
+say "Building the styles and scripts"
+if node_ok; then
+  npm ci --no-audit --no-fund && npm run build
+else
+  # node_modules lives in a Docker volume, so it never mixes with this computer's own tools.
+  docker run --rm -v "$PWD:/app" -v jude_preview_node_modules:/app/node_modules -w /app "$NODE_IMAGE" \
+    sh -c 'npm ci --no-audit --no-fund && npm run build'
+fi
+
+if [ ! -f .env ]; then
+  say "Creating the local settings file (.env)"
+  sed -e 's/^DB_PASSWORD=$/DB_PASSWORD=secret/' -e "s#^APP_URL=.*#APP_URL=$URL#" .env.example > .env
+  in_php php artisan key:generate --force
+fi
+
+say "Starting the store and its database"
+docker compose up -d
+
+printf 'Waiting for the database'
+tries=0
+until docker compose exec -T db mysqladmin ping -h 127.0.0.1 -ujude -psecret --silent >/dev/null 2>&1; do
+  tries=$((tries + 1))
+  if [ "$tries" -gt 90 ]; then echo; echo "The database did not start. Run: docker compose logs db"; exit 1; fi
+  printf '.'; sleep 2
+done
+echo
+
+if [ -f "$SEEDED" ]; then
+  say "Updating the database"
+  docker compose exec -T app php artisan migrate --force
+else
+  say "Filling the database with the demo products, texts and images"
+  docker compose exec -T app php artisan migrate:fresh --seed --force
+  touch "$SEEDED"
+fi
+ln -sfn ../storage/app/public public/storage   # uploaded and demo images
+
+cat <<DONE
+
+The JUDE store is running on this computer:
+
+  Store, English   $URL
+  Store, Arabic    $URL, then press "العربية" (the address stays the same)
+  Admin            $URL/admin
+
+  Owner sign-in    owner@jude.test   password
+                   (the first time, the owner is asked to set up two-step sign-in
+                   with an authenticator app, exactly as on the live site)
+
+Orders placed here stay on this computer; their emails are written to storage/logs/laravel.log.
+Stop it with: bin/preview stop
+DONE

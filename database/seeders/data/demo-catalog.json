@@ -1,0 +1,2052 @@
+{
+ "shades": [
+  {
+   "key": "black",
+   "name_en": "Black",
+   "name_ar": "أسود"
+  },
+  {
+   "key": "white",
+   "name_en": "White",
+   "name_ar": "أبيض"
+  },
+  {
+   "key": "gray",
+   "name_en": "Gray",
+   "name_ar": "رمادي"
+  },
+  {
+   "key": "beige",
+   "name_en": "Beige",
+   "name_ar": "بيج"
+  },
+  {
+   "key": "brown",
+   "name_en": "Brown",
+   "name_ar": "بني"
+  },
+  {
+   "key": "green",
+   "name_en": "Green",
+   "name_ar": "أخضر"
+  },
+  {
+   "key": "blue",
+   "name_en": "Blue",
+   "name_ar": "أزرق"
+  },
+  {
+   "key": "pink",
+   "name_en": "Pink",
+   "name_ar": "وردي"
+  },
+  {
+   "key": "red",
+   "name_en": "Burgundy",
+   "name_ar": "خمري"
+  },
+  {
+   "key": "purple",
+   "name_en": "Purple",
+   "name_ar": "بنفسجي"
+  }
+ ],
+ "categories": [
+  {
+   "slug": "sets",
+   "name_en": "Sets",
+   "name_ar": "أطقم",
+   "page_title_en": "Clothing Sets",
+   "page_title_ar": "أطقم ملابس",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+   ],
+   "size_guide": {
+    "columns": [
+     "Size",
+     "Bust (cm)",
+     "Waist (cm)",
+     "Hips (cm)"
+    ],
+    "rows": [
+     [
+      "S",
+      "84–88",
+      "66–70",
+      "90–94"
+     ],
+     [
+      "M",
+      "88–92",
+      "70–74",
+      "94–98"
+     ],
+     [
+      "L",
+      "92–98",
+      "74–80",
+      "98–104"
+     ],
+     [
+      "XL",
+      "98–104",
+      "80–86",
+      "104–110"
+     ],
+     [
+      "XXL",
+      "104–110",
+      "86–92",
+      "110–116"
+     ]
+    ]
+   },
+   "position": 1
+  },
+  {
+   "slug": "hijabs",
+   "name_en": "Hijabs",
+   "name_ar": "حجابات",
+   "page_title_en": "Hijabs",
+   "page_title_ar": "حجابات",
+   "sizes": [],
+   "size_guide": null,
+   "position": 2
+  },
+  {
+   "slug": "bundles",
+   "name_en": "Bundles",
+   "name_ar": "باقات",
+   "page_title_en": "Bundles",
+   "page_title_ar": "باقات",
+   "sizes": [],
+   "size_guide": null,
+   "position": 3
+  },
+  {
+   "slug": "jackets",
+   "name_en": "Jackets",
+   "name_ar": "جاكيتات",
+   "page_title_en": "Jackets",
+   "page_title_ar": "جاكيتات",
+   "sizes": [],
+   "size_guide": null,
+   "position": 4
+  },
+  {
+   "slug": "shirts",
+   "name_en": "Shirts",
+   "name_ar": "قمصان",
+   "page_title_en": "Shirts",
+   "page_title_ar": "قمصان",
+   "sizes": [],
+   "size_guide": null,
+   "position": 5
+  },
+  {
+   "slug": "hijab-basics",
+   "name_en": "Hijab Basics",
+   "name_ar": "أساسيات الحجاب",
+   "page_title_en": "Hijab Basics",
+   "page_title_ar": "أساسيات الحجاب",
+   "sizes": [],
+   "size_guide": null,
+   "position": 6
+  },
+  {
+   "slug": "dresses",
+   "name_en": "Dresses",
+   "name_ar": "فساتين",
+   "page_title_en": "Dresses",
+   "page_title_ar": "فساتين",
+   "sizes": [],
+   "size_guide": null,
+   "position": 7
+  }
+ ],
+ "collections": [
+  {
+   "slug": "autumn-collection",
+   "name_en": "Autumn Collection",
+   "name_ar": "مجموعة الخريف"
+  },
+  {
+   "slug": "plain-hijabs",
+   "name_en": "Plain Hijabs",
+   "name_ar": "حجابات سادة"
+  },
+  {
+   "slug": "wrap-sets",
+   "name_en": "Wrap Sets",
+   "name_ar": "أطقم بربطة جانبية"
+  },
+  {
+   "slug": "belted-sets",
+   "name_en": "Belted Sets",
+   "name_ar": "أطقم بحزام"
+  },
+  {
+   "slug": "hooded-sets",
+   "name_en": "Hooded Sets",
+   "name_ar": "أطقم بقبعة"
+  },
+  {
+   "slug": "bundles",
+   "name_en": "Bundles",
+   "name_ar": "باقات"
+  }
+ ],
+ "products": [
+  {
+   "slug": "olive-noir-hijab",
+   "category": "hijabs",
+   "name_en": "Olive Noir Hijab",
+   "name_ar": "حجاب أوليف نوار",
+   "description_en": "Olive Noir printed hijab from the Autumn Collection. Premium modal, made in Egypt.",
+   "description_ar": "حجاب مطبّع بنقشة أوليف نوار من مجموعة الخريف. مودال فاخر، صُنع في مصر.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 10,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "green",
+     "color_en": "Olive Noir",
+     "color_ar": "أوليف نوار",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-olive-noir-3.webp",
+      "hijab-olive-noir-2.webp",
+      "hijab-olive-noir-1.webp"
+     ],
+     "main": "hijab-olive-noir-3.webp",
+     "hover": "hijab-olive-noir-2.webp"
+    }
+   ]
+  },
+  {
+   "slug": "rosemary-hijab",
+   "category": "hijabs",
+   "name_en": "Rosemary Hijab",
+   "name_ar": "حجاب روزماري",
+   "description_en": "Rosemary printed hijab from the Autumn Collection. Premium modal, made in Egypt.",
+   "description_ar": "حجاب مطبّع بنقشة روزماري من مجموعة الخريف. مودال فاخر، صُنع في مصر.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 20,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "red",
+     "color_en": "Rosemary",
+     "color_ar": "روزماري",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-rosemary-3.webp",
+      "hijab-rosemary-2.webp",
+      "hijab-rosemary-1.webp"
+     ],
+     "main": "hijab-rosemary-3.webp",
+     "hover": "hijab-rosemary-2.webp"
+    }
+   ]
+  },
+  {
+   "slug": "silver-marble-hijab",
+   "category": "hijabs",
+   "name_en": "Silver Marble Hijab",
+   "name_ar": "حجاب رخامي فضي",
+   "description_en": "Silver Marble printed hijab from the Autumn Collection. Premium modal, made in Egypt.",
+   "description_ar": "حجاب مطبّع بنقشة رخامي فضي من مجموعة الخريف. مودال فاخر، صُنع في مصر.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 30,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "gray",
+     "color_en": "Silver Marble",
+     "color_ar": "رخامي فضي",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-silver-marble-3.webp",
+      "hijab-silver-marble-2.webp",
+      "hijab-silver-marble-1.webp"
+     ],
+     "main": "hijab-silver-marble-3.webp",
+     "hover": "hijab-silver-marble-2.webp"
+    }
+   ]
+  },
+  {
+   "slug": "burgundy-hijab",
+   "category": "hijabs",
+   "name_en": "Burgundy Hijab",
+   "name_ar": "حجاب خمري",
+   "description_en": "Burgundy printed hijab from the Autumn Collection. Premium modal, made in Egypt.",
+   "description_ar": "حجاب مطبّع بنقشة خمري من مجموعة الخريف. مودال فاخر، صُنع في مصر.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 40,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "red",
+     "color_en": "Burgundy",
+     "color_ar": "خمري",
+     "swatch": "#5c1820",
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-burgundy-3.webp",
+      "hijab-burgundy-2.webp",
+      "hijab-burgundy-1.webp"
+     ],
+     "main": "hijab-burgundy-3.webp",
+     "hover": "hijab-burgundy-2.webp"
+    }
+   ]
+  },
+  {
+   "slug": "deer-print-hijab",
+   "category": "hijabs",
+   "name_en": "Deer Print Hijab",
+   "name_ar": "حجاب نقشة الغزال",
+   "description_en": "Deer Print printed hijab from the Autumn Collection. Premium modal, made in Egypt.",
+   "description_ar": "حجاب مطبّع بنقشة نقشة الغزال من مجموعة الخريف. مودال فاخر، صُنع في مصر.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 50,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "brown",
+     "color_en": "Deer Print",
+     "color_ar": "نقشة الغزال",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-deer-print-3.webp",
+      "hijab-deer-print-2.webp",
+      "hijab-deer-print-1.webp"
+     ],
+     "main": "hijab-deer-print-3.webp",
+     "hover": "hijab-deer-print-2.webp"
+    }
+   ]
+  },
+  {
+   "slug": "forest-veil-hijab",
+   "category": "hijabs",
+   "name_en": "Forest Veil Hijab",
+   "name_ar": "حجاب فورست فيل",
+   "description_en": "Forest Veil printed hijab from the Autumn Collection. Premium modal, made in Egypt.",
+   "description_ar": "حجاب مطبّع بنقشة فورست فيل من مجموعة الخريف. مودال فاخر، صُنع في مصر.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 60,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "green",
+     "color_en": "Forest Veil",
+     "color_ar": "فورست فيل",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-forest-veil-3.webp",
+      "hijab-forest-veil-2.webp",
+      "hijab-forest-veil-1.webp"
+     ],
+     "main": "hijab-forest-veil-3.webp",
+     "hover": "hijab-forest-veil-2.webp"
+    }
+   ]
+  },
+  {
+   "slug": "leopard-print-hijab",
+   "category": "hijabs",
+   "name_en": "Leopard Print Hijab",
+   "name_ar": "حجاب نقشة الفهد",
+   "description_en": "Leopard Print printed hijab from the Autumn Collection. Premium modal, made in Egypt.",
+   "description_ar": "حجاب مطبّع بنقشة نقشة الفهد من مجموعة الخريف. مودال فاخر، صُنع في مصر.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 70,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "brown",
+     "color_en": "Leopard Print",
+     "color_ar": "نقشة الفهد",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-leopard-print-3.webp",
+      "hijab-leopard-print-2.webp",
+      "hijab-leopard-print-1.webp"
+     ],
+     "main": "hijab-leopard-print-3.webp",
+     "hover": "hijab-leopard-print-2.webp"
+    }
+   ]
+  },
+  {
+   "slug": "brown-marble-hijab",
+   "category": "hijabs",
+   "name_en": "Brown Marble Hijab",
+   "name_ar": "حجاب رخامي بني",
+   "description_en": "Brown Marble printed hijab from the Autumn Collection. Premium modal, made in Egypt.",
+   "description_ar": "حجاب مطبّع بنقشة رخامي بني من مجموعة الخريف. مودال فاخر، صُنع في مصر.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 80,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "brown",
+     "color_en": "Brown Marble",
+     "color_ar": "رخامي بني",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-brown-marble-3.webp",
+      "hijab-brown-marble-2.webp",
+      "hijab-brown-marble-1.webp"
+     ],
+     "main": "hijab-brown-marble-3.webp",
+     "hover": "hijab-brown-marble-2.webp"
+    }
+   ]
+  },
+  {
+   "slug": "grey-marble-hijab",
+   "category": "hijabs",
+   "name_en": "Grey Marble Hijab",
+   "name_ar": "حجاب رخامي رمادي",
+   "description_en": "Grey Marble printed hijab from the Autumn Collection. Premium modal, made in Egypt.",
+   "description_ar": "حجاب مطبّع بنقشة رخامي رمادي من مجموعة الخريف. مودال فاخر، صُنع في مصر.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 90,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "gray",
+     "color_en": "Grey Marble",
+     "color_ar": "رخامي رمادي",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-grey-marble-3.webp",
+      "hijab-grey-marble-2.webp",
+      "hijab-grey-marble-1.webp"
+     ],
+     "main": "hijab-grey-marble-3.webp",
+     "hover": "hijab-grey-marble-2.webp"
+    }
+   ]
+  },
+  {
+   "slug": "burgundy-marble-hijab",
+   "category": "hijabs",
+   "name_en": "Burgundy Marble Hijab",
+   "name_ar": "حجاب رخامي خمري",
+   "description_en": "Burgundy Marble printed hijab from the Autumn Collection.",
+   "description_ar": "حجاب مطبّع بنقشة رخامي خمري من مجموعة الخريف.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 100,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "red",
+     "color_en": "Burgundy Marble",
+     "color_ar": "رخامي خمري",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-burgundy-marble-2.webp",
+      "hijab-burgundy-marble-1.webp"
+     ],
+     "main": "hijab-burgundy-marble-2.webp",
+     "hover": "hijab-burgundy-marble-1.webp"
+    }
+   ]
+  },
+  {
+   "slug": "monochrome-hijab",
+   "category": "hijabs",
+   "name_en": "Monochrome Hijab",
+   "name_ar": "حجاب مونوكروم",
+   "description_en": "Monochrome printed hijab from the Autumn Collection.",
+   "description_ar": "حجاب مطبّع بنقشة مونوكروم من مجموعة الخريف.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": true,
+   "display_order": 110,
+   "collections": [
+    "autumn-collection"
+   ],
+   "colors": [
+    {
+     "shade": "black",
+     "color_en": "Monochrome",
+     "color_ar": "مونوكروم",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-monochrome-2.webp",
+      "hijab-monochrome-1.webp"
+     ],
+     "main": "hijab-monochrome-2.webp",
+     "hover": "hijab-monochrome-1.webp"
+    }
+   ]
+  },
+  {
+   "slug": "plain-hijab",
+   "category": "hijabs",
+   "name_en": "Plain Hijab",
+   "name_ar": "حجاب سادة",
+   "description_en": "A plain hijab in classic colors.",
+   "description_ar": "حجاب سادة بألوان كلاسيكية.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 17,
+   "is_featured": false,
+   "display_order": 120,
+   "collections": [
+    "plain-hijabs"
+   ],
+   "colors": [
+    {
+     "shade": "pink",
+     "color_en": "Petal Pink",
+     "color_ar": "وردي بتلات",
+     "swatch": "#c99ea5",
+     "legacy_slug": "petal-pink-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-petal-pink.webp"
+     ],
+     "main": "hijab-petal-pink.webp",
+     "hover": null
+    },
+    {
+     "shade": "black",
+     "color_en": "Black",
+     "color_ar": "أسود",
+     "swatch": "#1d1b1c",
+     "legacy_slug": "black-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-black.webp"
+     ],
+     "main": "hijab-black.webp",
+     "hover": null
+    },
+    {
+     "shade": "green",
+     "color_en": "Olive Green",
+     "color_ar": "أخضر زيتي",
+     "swatch": "#655e4a",
+     "legacy_slug": "olive-green-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-olive-green.webp"
+     ],
+     "main": "hijab-olive-green.webp",
+     "hover": null
+    },
+    {
+     "shade": "white",
+     "color_en": "Bright White",
+     "color_ar": "أبيض ناصع",
+     "swatch": "#f2f1f4",
+     "legacy_slug": "bright-white-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-bright-white.webp"
+     ],
+     "main": "hijab-bright-white.webp",
+     "hover": null
+    },
+    {
+     "shade": "gray",
+     "color_en": "Cool Gray",
+     "color_ar": "رمادي بارد",
+     "swatch": "#7a7780",
+     "legacy_slug": "cool-gray-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-cool-gray.webp"
+     ],
+     "main": "hijab-cool-gray.webp",
+     "hover": null
+    },
+    {
+     "shade": "beige",
+     "color_en": "Hazelnut",
+     "color_ar": "بندقي",
+     "swatch": "#89695b",
+     "legacy_slug": "hazelnut-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-hazelnut.webp"
+     ],
+     "main": "hijab-hazelnut.webp",
+     "hover": null
+    },
+    {
+     "shade": "red",
+     "color_en": "Merlot",
+     "color_ar": "ميرلو",
+     "swatch": "#431219",
+     "legacy_slug": "merlot-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-merlot.webp"
+     ],
+     "main": "hijab-merlot.webp",
+     "hover": null
+    },
+    {
+     "shade": "brown",
+     "color_en": "Brown",
+     "color_ar": "بني",
+     "swatch": "#553126",
+     "legacy_slug": "brown-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-brown.webp"
+     ],
+     "main": "hijab-brown.webp",
+     "hover": null
+    },
+    {
+     "shade": "blue",
+     "color_en": "Dark Denim",
+     "color_ar": "جينز داكن",
+     "swatch": "#39405f",
+     "legacy_slug": "dark-denim-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-dark-denim.webp"
+     ],
+     "main": "hijab-dark-denim.webp",
+     "hover": null
+    },
+    {
+     "shade": "blue",
+     "color_en": "Navy Blue",
+     "color_ar": "كحلي",
+     "swatch": "#171b39",
+     "legacy_slug": "navy-blue-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-navy-blue.webp"
+     ],
+     "main": "hijab-navy-blue.webp",
+     "hover": null
+    },
+    {
+     "shade": "purple",
+     "color_en": "Violet Ice",
+     "color_ar": "بنفسجي ثلجي",
+     "swatch": "#866e7a",
+     "legacy_slug": "violet-ice-hijab",
+     "in_stock": true,
+     "photos": [
+      "hijab-violet-ice.webp"
+     ],
+     "main": "hijab-violet-ice.webp",
+     "hover": null
+    }
+   ]
+  },
+  {
+   "slug": "wrap-set",
+   "category": "sets",
+   "name_en": "Wrap Set",
+   "name_ar": "طقم بربطة جانبية",
+   "description_en": "Two-piece set: a high-neck top with a side wrap tie and wide-leg pants.",
+   "description_ar": "طقم من قطعتين: بلوزة بياقة عالية وربطة جانبية وبنطال واسع.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 35,
+   "is_featured": false,
+   "display_order": 230,
+   "collections": [
+    "wrap-sets"
+   ],
+   "colors": [
+    {
+     "shade": "black",
+     "color_en": "Black",
+     "color_ar": "أسود",
+     "swatch": "#1d1b1c",
+     "legacy_slug": "black-wrap-set",
+     "in_stock": true,
+     "photos": [
+      "set-wrap-black-1.webp",
+      "set-wrap-black-2.webp"
+     ],
+     "main": "set-wrap-black-1.webp",
+     "hover": "set-wrap-black-2.webp"
+    },
+    {
+     "shade": "blue",
+     "color_en": "Navy",
+     "color_ar": "كحلي",
+     "swatch": "#1f2740",
+     "legacy_slug": "navy-wrap-set",
+     "in_stock": true,
+     "photos": [
+      "set-wrap-navy-1.webp",
+      "set-wrap-navy-2.webp"
+     ],
+     "main": "set-wrap-navy-1.webp",
+     "hover": "set-wrap-navy-2.webp"
+    },
+    {
+     "shade": "brown",
+     "color_en": "Chocolate Brown",
+     "color_ar": "بني شوكولاتة",
+     "swatch": "#3e241b",
+     "legacy_slug": "chocolate-brown-wrap-set",
+     "in_stock": true,
+     "photos": [
+      "set-wrap-chocolate-brown-1.webp",
+      "set-wrap-chocolate-brown-2.webp"
+     ],
+     "main": "set-wrap-chocolate-brown-1.webp",
+     "hover": "set-wrap-chocolate-brown-2.webp"
+    },
+    {
+     "shade": "beige",
+     "color_en": "Beige",
+     "color_ar": "بيج",
+     "swatch": "#b89d89",
+     "legacy_slug": "beige-wrap-set",
+     "in_stock": true,
+     "photos": [
+      "set-wrap-beige-1.webp",
+      "set-wrap-beige-2.webp"
+     ],
+     "main": "set-wrap-beige-1.webp",
+     "hover": "set-wrap-beige-2.webp"
+    }
+   ]
+  },
+  {
+   "slug": "belted-set",
+   "category": "sets",
+   "name_en": "Belted Set",
+   "name_ar": "طقم بحزام",
+   "description_en": "Two-piece set: a stand-collar belted jacket and wide-leg pants.",
+   "description_ar": "طقم من قطعتين: جاكيت بياقة واقفة وحزام وبنطال واسع.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 35,
+   "is_featured": false,
+   "display_order": 270,
+   "collections": [
+    "belted-sets"
+   ],
+   "colors": [
+    {
+     "shade": "black",
+     "color_en": "Black",
+     "color_ar": "أسود",
+     "swatch": "#1d1b1c",
+     "legacy_slug": "black-belted-set",
+     "in_stock": true,
+     "photos": [
+      "set-belted-black.webp"
+     ],
+     "main": "set-belted-black.webp",
+     "hover": null
+    },
+    {
+     "shade": "pink",
+     "color_en": "Pink",
+     "color_ar": "وردي",
+     "swatch": "#f5bec2",
+     "legacy_slug": "pink-belted-set",
+     "in_stock": true,
+     "photos": [
+      "set-belted-pink.webp"
+     ],
+     "main": "set-belted-pink.webp",
+     "hover": null
+    },
+    {
+     "shade": "green",
+     "color_en": "Sage",
+     "color_ar": "ميرمية",
+     "swatch": "#878160",
+     "legacy_slug": "sage-belted-set",
+     "in_stock": true,
+     "photos": [
+      "set-belted-sage.webp"
+     ],
+     "main": "set-belted-sage.webp",
+     "hover": null
+    },
+    {
+     "shade": "blue",
+     "color_en": "Navy",
+     "color_ar": "كحلي",
+     "swatch": "#1f2740",
+     "legacy_slug": "navy-belted-set",
+     "in_stock": true,
+     "photos": [
+      "set-belted-navy.webp"
+     ],
+     "main": "set-belted-navy.webp",
+     "hover": null
+    },
+    {
+     "shade": "red",
+     "color_en": "Burgundy",
+     "color_ar": "خمري",
+     "swatch": "#5c1820",
+     "legacy_slug": "burgundy-belted-set",
+     "in_stock": true,
+     "photos": [
+      "set-belted-burgundy.webp"
+     ],
+     "main": "set-belted-burgundy.webp",
+     "hover": null
+    },
+    {
+     "shade": "brown",
+     "color_en": "Brown",
+     "color_ar": "بني",
+     "swatch": "#553126",
+     "legacy_slug": "brown-belted-set",
+     "in_stock": true,
+     "photos": [
+      "set-belted-brown.webp"
+     ],
+     "main": "set-belted-brown.webp",
+     "hover": null
+    }
+   ]
+  },
+  {
+   "slug": "hooded-set",
+   "category": "sets",
+   "name_en": "Hooded Set",
+   "name_ar": "طقم بقبعة",
+   "description_en": "Two-piece set: a hooded button-up jacket with pockets and wide-leg pants.",
+   "description_ar": "طقم من قطعتين: جاكيت بقبعة وأزرار وجيوب وبنطال واسع.",
+   "badge_en": null,
+   "badge_ar": null,
+   "price": 35,
+   "is_featured": false,
+   "display_order": 330,
+   "collections": [
+    "hooded-sets"
+   ],
+   "colors": [
+    {
+     "shade": "black",
+     "color_en": "Black",
+     "color_ar": "أسود",
+     "swatch": "#1d1b1c",
+     "legacy_slug": "black-hooded-set",
+     "in_stock": true,
+     "photos": [
+      "set-hooded-black.webp"
+     ],
+     "main": "set-hooded-black.webp",
+     "hover": null
+    },
+    {
+     "shade": "pink",
+     "color_en": "Pink",
+     "color_ar": "وردي",
+     "swatch": "#f5bec2",
+     "legacy_slug": "pink-hooded-set",
+     "in_stock": true,
+     "photos": [
+      "set-hooded-pink.webp"
+     ],
+     "main": "set-hooded-pink.webp",
+     "hover": null
+    },
+    {
+     "shade": "green",
+     "color_en": "Olive",
+     "color_ar": "زيتي",
+     "swatch": "#525537",
+     "legacy_slug": "olive-hooded-set",
+     "in_stock": true,
+     "photos": [
+      "set-hooded-olive.webp"
+     ],
+     "main": "set-hooded-olive.webp",
+     "hover": null
+    },
+    {
+     "shade": "blue",
+     "color_en": "Navy",
+     "color_ar": "كحلي",
+     "swatch": "#1f2740",
+     "legacy_slug": "navy-hooded-set",
+     "in_stock": true,
+     "photos": [
+      "set-hooded-navy.webp"
+     ],
+     "main": "set-hooded-navy.webp",
+     "hover": null
+    },
+    {
+     "shade": "red",
+     "color_en": "Burgundy",
+     "color_ar": "خمري",
+     "swatch": "#5c1820",
+     "legacy_slug": "burgundy-hooded-set",
+     "in_stock": true,
+     "photos": [
+      "set-hooded-burgundy.webp"
+     ],
+     "main": "set-hooded-burgundy.webp",
+     "hover": null
+    },
+    {
+     "shade": "brown",
+     "color_en": "Brown",
+     "color_ar": "بني",
+     "swatch": "#553126",
+     "legacy_slug": "brown-hooded-set",
+     "in_stock": true,
+     "photos": [
+      "set-hooded-brown.webp"
+     ],
+     "main": "set-hooded-brown.webp",
+     "hover": null
+    }
+   ]
+  },
+  {
+   "slug": "hijab-box",
+   "category": "bundles",
+   "name_en": "Hijab Box",
+   "name_ar": "صندوق الحجابات",
+   "description_en": "A gift box of everyday hijabs in black, white and soft neutrals. Premium modal, made in Egypt.",
+   "description_ar": "صندوق هدية من الحجابات اليومية بالأسود والأبيض والألوان المحايدة الناعمة. مودال فاخر، صُنع في مصر.",
+   "badge_en": "Bundle",
+   "badge_ar": "باقة",
+   "price": 75,
+   "is_featured": true,
+   "display_order": 900,
+   "collections": [
+    "bundles"
+   ],
+   "colors": [
+    {
+     "shade": "beige",
+     "color_en": "Mixed neutrals",
+     "color_ar": "ألوان محايدة",
+     "swatch": null,
+     "legacy_slug": null,
+     "in_stock": true,
+     "photos": [
+      "hijab-collection-box.webp"
+     ],
+     "main": "hijab-collection-box.webp",
+     "hover": null
+    }
+   ]
+  }
+ ],
+ "cities": [
+  {
+   "key": "amman",
+   "name_en": "Amman",
+   "name_ar": "عمّان",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Abdali",
+     "ar": "العبدلي"
+    },
+    {
+     "en": "Abdoun",
+     "ar": "عبدون"
+    },
+    {
+     "en": "Abu Alanda",
+     "ar": "أبو علندا"
+    },
+    {
+     "en": "Abu Nseir",
+     "ar": "أبو نصير"
+    },
+    {
+     "en": "Airport Road",
+     "ar": "طريق المطار"
+    },
+    {
+     "en": "Al-Bayader",
+     "ar": "البيادر"
+    },
+    {
+     "en": "Al-Bnayyat",
+     "ar": "البنيات"
+    },
+    {
+     "en": "Al-Jandaweel",
+     "ar": "الجندويل"
+    },
+    {
+     "en": "Al-Jubeiha",
+     "ar": "الجبيهة"
+    },
+    {
+     "en": "Al-Jweideh",
+     "ar": "الجويدة"
+    },
+    {
+     "en": "Al-Kursi",
+     "ar": "الكرسي"
+    },
+    {
+     "en": "Al-Mahatta",
+     "ar": "المحطة"
+    },
+    {
+     "en": "Al-Muqabalain",
+     "ar": "المقابلين"
+    },
+    {
+     "en": "Al-Muwaqqar",
+     "ar": "الموقر"
+    },
+    {
+     "en": "Al-Qweismeh",
+     "ar": "القويسمة"
+    },
+    {
+     "en": "Al-Rabiah",
+     "ar": "الرابية"
+    },
+    {
+     "en": "Al-Rawabi",
+     "ar": "الروابي"
+    },
+    {
+     "en": "Al-Wehdat",
+     "ar": "الوحدات"
+    },
+    {
+     "en": "Al-Yadudah",
+     "ar": "اليادودة"
+    },
+    {
+     "en": "Al-Yarmouk",
+     "ar": "اليرموك"
+    },
+    {
+     "en": "Badr Al-Jadida",
+     "ar": "بدر الجديدة"
+    },
+    {
+     "en": "Dabouq",
+     "ar": "دابوق"
+    },
+    {
+     "en": "Dahiyat Al-Amir Hassan",
+     "ar": "ضاحية الأمير حسن"
+    },
+    {
+     "en": "Dahiyat Al-Rasheed",
+     "ar": "ضاحية الرشيد"
+    },
+    {
+     "en": "Dahiyat Al-Yasmeen",
+     "ar": "ضاحية الياسمين"
+    },
+    {
+     "en": "Deir Ghbar",
+     "ar": "دير غبار"
+    },
+    {
+     "en": "Downtown (Al-Balad)",
+     "ar": "وسط البلد"
+    },
+    {
+     "en": "Gardens",
+     "ar": "الجاردنز"
+    },
+    {
+     "en": "Hai Nazzal",
+     "ar": "حي نزال"
+    },
+    {
+     "en": "Hashmi Al-Janoubi",
+     "ar": "الهاشمي الجنوبي"
+    },
+    {
+     "en": "Hashmi Al-Shamali",
+     "ar": "الهاشمي الشمالي"
+    },
+    {
+     "en": "Jabal Al-Ashrafieh",
+     "ar": "جبل الأشرفية"
+    },
+    {
+     "en": "Jabal Al-Hussein",
+     "ar": "جبل الحسين"
+    },
+    {
+     "en": "Jabal Al-Nasr",
+     "ar": "جبل النصر"
+    },
+    {
+     "en": "Jabal Al-Natheef",
+     "ar": "جبل النظيف"
+    },
+    {
+     "en": "Jabal Al-Nuzha",
+     "ar": "جبل النزهة"
+    },
+    {
+     "en": "Jabal Al-Qal’a",
+     "ar": "جبل القلعة"
+    },
+    {
+     "en": "Jabal Al-Taj",
+     "ar": "جبل التاج"
+    },
+    {
+     "en": "Jabal Al-Weibdeh",
+     "ar": "جبل اللويبدة"
+    },
+    {
+     "en": "Jabal Amman",
+     "ar": "جبل عمّان"
+    },
+    {
+     "en": "Khalda",
+     "ar": "خلدا"
+    },
+    {
+     "en": "Khraibet Al-Souq",
+     "ar": "خريبة السوق"
+    },
+    {
+     "en": "Marj Al-Hamam",
+     "ar": "مرج الحمام"
+    },
+    {
+     "en": "Marka",
+     "ar": "ماركا"
+    },
+    {
+     "en": "Naour",
+     "ar": "ناعور"
+    },
+    {
+     "en": "Ras Al-Ain",
+     "ar": "رأس العين"
+    },
+    {
+     "en": "Sahab",
+     "ar": "سحاب"
+    },
+    {
+     "en": "Shafa Badran",
+     "ar": "شفا بدران"
+    },
+    {
+     "en": "Shmeisani",
+     "ar": "الشميساني"
+    },
+    {
+     "en": "Sport City",
+     "ar": "المدينة الرياضية"
+    },
+    {
+     "en": "Sweifieh",
+     "ar": "الصويفية"
+    },
+    {
+     "en": "Sweileh",
+     "ar": "صويلح"
+    },
+    {
+     "en": "Tabarbour",
+     "ar": "طبربور"
+    },
+    {
+     "en": "Tla’ Al-Ali",
+     "ar": "تلاع العلي"
+    },
+    {
+     "en": "Um Al-Hiran",
+     "ar": "أم الحيران"
+    },
+    {
+     "en": "Um Al-Summaq",
+     "ar": "أم السماق"
+    },
+    {
+     "en": "Um Uthaina",
+     "ar": "أم أذينة"
+    },
+    {
+     "en": "Wadi Al-Seer",
+     "ar": "وادي السير"
+    },
+    {
+     "en": "Wadi Saqra",
+     "ar": "وادي صقرة"
+    }
+   ]
+  },
+  {
+   "key": "zarqa",
+   "name_en": "Zarqa",
+   "name_ar": "الزرقاء",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Al-Azraq",
+     "ar": "الأزرق"
+    },
+    {
+     "en": "Al-Battrawi",
+     "ar": "البتراوي"
+    },
+    {
+     "en": "Al-Dhlail",
+     "ar": "الضليل"
+    },
+    {
+     "en": "Al-Ghuweiriyeh",
+     "ar": "الغويرية"
+    },
+    {
+     "en": "Al-Hallabat",
+     "ar": "الحلابات"
+    },
+    {
+     "en": "Al-Hashimiyya",
+     "ar": "الهاشمية"
+    },
+    {
+     "en": "Al-Sukhna",
+     "ar": "السخنة"
+    },
+    {
+     "en": "Al-Zawahra",
+     "ar": "الزواهرة"
+    },
+    {
+     "en": "Awajan",
+     "ar": "عوجان"
+    },
+    {
+     "en": "Birain",
+     "ar": "بيرين"
+    },
+    {
+     "en": "Dahiyat Makkah",
+     "ar": "ضاحية مكة"
+    },
+    {
+     "en": "Hai Al-Hussein",
+     "ar": "حي الحسين"
+    },
+    {
+     "en": "Hai Ma’soum",
+     "ar": "حي معصوم"
+    },
+    {
+     "en": "Jabal Al-Shamali",
+     "ar": "الجبل الشمالي"
+    },
+    {
+     "en": "Jabal Tareq",
+     "ar": "جبل طارق"
+    },
+    {
+     "en": "New Zarqa",
+     "ar": "الزرقاء الجديدة"
+    },
+    {
+     "en": "Russeifa",
+     "ar": "الرصيفة"
+    },
+    {
+     "en": "Zarqa City Centre",
+     "ar": "وسط مدينة الزرقاء"
+    }
+   ]
+  },
+  {
+   "key": "irbid",
+   "name_en": "Irbid",
+   "name_ar": "إربد",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Al-Barha",
+     "ar": "البارحة"
+    },
+    {
+     "en": "Al-Husn",
+     "ar": "الحصن"
+    },
+    {
+     "en": "Al-Koura",
+     "ar": "الكورة"
+    },
+    {
+     "en": "Al-Mazar Al-Shamali",
+     "ar": "المزار الشمالي"
+    },
+    {
+     "en": "Al-Mughayyir",
+     "ar": "المغير"
+    },
+    {
+     "en": "Al-Nuaimeh",
+     "ar": "النعيمة"
+    },
+    {
+     "en": "Al-Sarih",
+     "ar": "الصريح"
+    },
+    {
+     "en": "Al-Taybeh",
+     "ar": "الطيبة"
+    },
+    {
+     "en": "Al-Tura",
+     "ar": "الطرة"
+    },
+    {
+     "en": "Al-Wasatiyya",
+     "ar": "الوسطية"
+    },
+    {
+     "en": "Aydoun",
+     "ar": "إيدون"
+    },
+    {
+     "en": "Bani Kinanah",
+     "ar": "بني كنانة"
+    },
+    {
+     "en": "Bani Obeid",
+     "ar": "بني عبيد"
+    },
+    {
+     "en": "Bushra",
+     "ar": "بشرى"
+    },
+    {
+     "en": "Deir Abi Said",
+     "ar": "دير أبي سعيد"
+    },
+    {
+     "en": "Eastern District",
+     "ar": "الحي الشرقي"
+    },
+    {
+     "en": "Hai Al-Turkman",
+     "ar": "حي التركمان"
+    },
+    {
+     "en": "Hakama",
+     "ar": "حكما"
+    },
+    {
+     "en": "Huwwara",
+     "ar": "حوارة"
+    },
+    {
+     "en": "Irbid City Centre",
+     "ar": "وسط مدينة إربد"
+    },
+    {
+     "en": "Kufr Asad",
+     "ar": "كفر أسد"
+    },
+    {
+     "en": "Kufr Soum",
+     "ar": "كفر سوم"
+    },
+    {
+     "en": "Kufr Yuba",
+     "ar": "كفر يوبا"
+    },
+    {
+     "en": "North Shouneh",
+     "ar": "الشونة الشمالية"
+    },
+    {
+     "en": "Northern Jordan Valley",
+     "ar": "الأغوار الشمالية"
+    },
+    {
+     "en": "Ramtha",
+     "ar": "الرمثا"
+    },
+    {
+     "en": "Sahm",
+     "ar": "سحم"
+    },
+    {
+     "en": "Sal",
+     "ar": "سال"
+    },
+    {
+     "en": "Southern District",
+     "ar": "الحي الجنوبي"
+    },
+    {
+     "en": "Um Qais",
+     "ar": "أم قيس"
+    }
+   ]
+  },
+  {
+   "key": "salt",
+   "name_en": "Salt",
+   "name_ar": "السلط",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Ain Al-Basha",
+     "ar": "عين الباشا"
+    },
+    {
+     "en": "Al-Ardah",
+     "ar": "العارضة"
+    },
+    {
+     "en": "Al-Baqa’a",
+     "ar": "البقعة"
+    },
+    {
+     "en": "Al-Fuhais",
+     "ar": "الفحيص"
+    },
+    {
+     "en": "Al-Karama",
+     "ar": "الكرامة"
+    },
+    {
+     "en": "Al-Rumaimin",
+     "ar": "الرميمين"
+    },
+    {
+     "en": "Al-Salalem",
+     "ar": "السلالم"
+    },
+    {
+     "en": "Allan",
+     "ar": "علان"
+    },
+    {
+     "en": "Deir Alla",
+     "ar": "دير علا"
+    },
+    {
+     "en": "Mahis",
+     "ar": "ماحص"
+    },
+    {
+     "en": "Salt City Centre",
+     "ar": "وسط مدينة السلط"
+    },
+    {
+     "en": "South Shouneh",
+     "ar": "الشونة الجنوبية"
+    },
+    {
+     "en": "Um Jozeh",
+     "ar": "أم جوزة"
+    },
+    {
+     "en": "Wadi Shuaib",
+     "ar": "وادي شعيب"
+    },
+    {
+     "en": "Yarqa",
+     "ar": "يرقا"
+    },
+    {
+     "en": "Zay",
+     "ar": "زي"
+    }
+   ]
+  },
+  {
+   "key": "madaba",
+   "name_en": "Madaba",
+   "name_ar": "مادبا",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Al-Areed",
+     "ar": "العريض"
+    },
+    {
+     "en": "Al-Faisaliyya",
+     "ar": "الفيصلية"
+    },
+    {
+     "en": "Dhiban",
+     "ar": "ذيبان"
+    },
+    {
+     "en": "Hanina",
+     "ar": "حنينا"
+    },
+    {
+     "en": "Jaloul",
+     "ar": "جلول"
+    },
+    {
+     "en": "Jarina",
+     "ar": "جرينة"
+    },
+    {
+     "en": "Libb",
+     "ar": "لب"
+    },
+    {
+     "en": "Ma’in",
+     "ar": "ماعين"
+    },
+    {
+     "en": "Madaba City Centre",
+     "ar": "وسط مدينة مادبا"
+    },
+    {
+     "en": "Mlaih",
+     "ar": "مليح"
+    },
+    {
+     "en": "Mount Nebo",
+     "ar": "جبل نيبو"
+    },
+    {
+     "en": "Um Al-Rasas",
+     "ar": "أم الرصاص"
+    }
+   ]
+  },
+  {
+   "key": "mafraq",
+   "name_en": "Mafraq",
+   "name_ar": "المفرق",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Al-Khalidiyya",
+     "ar": "الخالدية"
+    },
+    {
+     "en": "Al-Manshiyya",
+     "ar": "المنشية"
+    },
+    {
+     "en": "Al-Ruwaished",
+     "ar": "الرويشد"
+    },
+    {
+     "en": "Al-Salihiyya",
+     "ar": "الصالحية"
+    },
+    {
+     "en": "Al-Za’atari",
+     "ar": "الزعتري"
+    },
+    {
+     "en": "Bal’ama",
+     "ar": "بلعما"
+    },
+    {
+     "en": "Deir Al-Kahf",
+     "ar": "دير الكهف"
+    },
+    {
+     "en": "Hosha",
+     "ar": "حوشا"
+    },
+    {
+     "en": "Mafraq City Centre",
+     "ar": "وسط مدينة المفرق"
+    },
+    {
+     "en": "Northern Badia",
+     "ar": "البادية الشمالية"
+    },
+    {
+     "en": "Rihab",
+     "ar": "رحاب"
+    },
+    {
+     "en": "Sabha",
+     "ar": "صبحا"
+    },
+    {
+     "en": "Sama Al-Sarhan",
+     "ar": "سما السرحان"
+    },
+    {
+     "en": "Um Al-Jimal",
+     "ar": "أم الجمال"
+    }
+   ]
+  },
+  {
+   "key": "jerash",
+   "name_en": "Jerash",
+   "name_ar": "جرش",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Al-Kitteh",
+     "ar": "الكتة"
+    },
+    {
+     "en": "Al-Mansoura",
+     "ar": "المنصورة"
+    },
+    {
+     "en": "Al-Mastaba",
+     "ar": "المصطبة"
+    },
+    {
+     "en": "Balila",
+     "ar": "بليلا"
+    },
+    {
+     "en": "Burma",
+     "ar": "برما"
+    },
+    {
+     "en": "Jerash City Centre",
+     "ar": "وسط مدينة جرش"
+    },
+    {
+     "en": "Kufr Khal",
+     "ar": "كفر خل"
+    },
+    {
+     "en": "Nahleh",
+     "ar": "نحلة"
+    },
+    {
+     "en": "Qafqafa",
+     "ar": "قفقفا"
+    },
+    {
+     "en": "Raymun",
+     "ar": "ريمون"
+    },
+    {
+     "en": "Sakib",
+     "ar": "ساكب"
+    },
+    {
+     "en": "Souf",
+     "ar": "سوف"
+    }
+   ]
+  },
+  {
+   "key": "ajloun",
+   "name_en": "Ajloun",
+   "name_ar": "عجلون",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Ain Janna",
+     "ar": "عين جنا"
+    },
+    {
+     "en": "Ajloun City Centre",
+     "ar": "وسط مدينة عجلون"
+    },
+    {
+     "en": "Al-Wahadneh",
+     "ar": "الوهادنة"
+    },
+    {
+     "en": "Anjara",
+     "ar": "عنجرة"
+    },
+    {
+     "en": "Arjan",
+     "ar": "عرجان"
+    },
+    {
+     "en": "Halawa",
+     "ar": "حلاوة"
+    },
+    {
+     "en": "Ibbin",
+     "ar": "عبين"
+    },
+    {
+     "en": "Ibillin",
+     "ar": "عبلين"
+    },
+    {
+     "en": "Ishtafeena",
+     "ar": "اشتفينا"
+    },
+    {
+     "en": "Kufranjah",
+     "ar": "كفرنجة"
+    },
+    {
+     "en": "Rajib",
+     "ar": "راجب"
+    },
+    {
+     "en": "Sakhra",
+     "ar": "صخرة"
+    }
+   ]
+  },
+  {
+   "key": "karak",
+   "name_en": "Karak",
+   "name_ar": "الكرك",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Adir",
+     "ar": "أدر"
+    },
+    {
+     "en": "Al-Marj",
+     "ar": "المرج"
+    },
+    {
+     "en": "Al-Mazar Al-Janoubi",
+     "ar": "المزار الجنوبي"
+    },
+    {
+     "en": "Al-Qasr",
+     "ar": "القصر"
+    },
+    {
+     "en": "Al-Qatraneh",
+     "ar": "القطرانة"
+    },
+    {
+     "en": "Al-Rabba",
+     "ar": "الربة"
+    },
+    {
+     "en": "Al-Thaniyya",
+     "ar": "الثنية"
+    },
+    {
+     "en": "Ay",
+     "ar": "عي"
+    },
+    {
+     "en": "Faqqu’",
+     "ar": "فقوع"
+    },
+    {
+     "en": "Ghor Al-Mazra’a",
+     "ar": "غور المزرعة"
+    },
+    {
+     "en": "Ghor Al-Safi",
+     "ar": "غور الصافي"
+    },
+    {
+     "en": "Karak City Centre",
+     "ar": "وسط مدينة الكرك"
+    },
+    {
+     "en": "Mu’tah",
+     "ar": "مؤتة"
+    },
+    {
+     "en": "Southern Jordan Valley",
+     "ar": "الأغوار الجنوبية"
+    }
+   ]
+  },
+  {
+   "key": "tafilah",
+   "name_en": "Tafilah",
+   "name_ar": "الطفيلة",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Ain Al-Baida",
+     "ar": "عين البيضاء"
+    },
+    {
+     "en": "Al-Ees",
+     "ar": "العيص"
+    },
+    {
+     "en": "Al-Hasa",
+     "ar": "الحسا"
+    },
+    {
+     "en": "Al-Rashadiyya",
+     "ar": "الرشادية"
+    },
+    {
+     "en": "Busaira",
+     "ar": "بصيرا"
+    },
+    {
+     "en": "Dana",
+     "ar": "ضانا"
+    },
+    {
+     "en": "Gharandal",
+     "ar": "غرندل"
+    },
+    {
+     "en": "Tafilah City Centre",
+     "ar": "وسط مدينة الطفيلة"
+    }
+   ]
+  },
+  {
+   "key": "maan",
+   "name_en": "Ma’an",
+   "name_ar": "معان",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Al-Husseiniyya",
+     "ar": "الحسينية"
+    },
+    {
+     "en": "Al-Jafr",
+     "ar": "الجفر"
+    },
+    {
+     "en": "Al-Mreigha",
+     "ar": "المريغة"
+    },
+    {
+     "en": "Al-Taybeh",
+     "ar": "الطيبة"
+    },
+    {
+     "en": "Eil",
+     "ar": "إيل"
+    },
+    {
+     "en": "Ma’an City Centre",
+     "ar": "وسط مدينة معان"
+    },
+    {
+     "en": "Ras Al-Naqab",
+     "ar": "رأس النقب"
+    },
+    {
+     "en": "Shobak",
+     "ar": "الشوبك"
+    },
+    {
+     "en": "Udhruh",
+     "ar": "أذرح"
+    },
+    {
+     "en": "Wadi Musa (Petra)",
+     "ar": "وادي موسى (البتراء)"
+    }
+   ]
+  },
+  {
+   "key": "aqaba",
+   "name_en": "Aqaba",
+   "name_ar": "العقبة",
+   "fee": 3,
+   "areas": [
+    {
+     "en": "Al-Disi",
+     "ar": "الديسة"
+    },
+    {
+     "en": "Al-Quwaira",
+     "ar": "القويرة"
+    },
+    {
+     "en": "Al-Rimal",
+     "ar": "الرمال"
+    },
+    {
+     "en": "Al-Shallaleh",
+     "ar": "الشلالة"
+    },
+    {
+     "en": "Aqaba City Centre",
+     "ar": "وسط مدينة العقبة"
+    },
+    {
+     "en": "Ayla",
+     "ar": "أيلة"
+    },
+    {
+     "en": "South Beach",
+     "ar": "الشاطئ الجنوبي"
+    },
+    {
+     "en": "Tala Bay",
+     "ar": "تالا باي"
+    },
+    {
+     "en": "Wadi Araba",
+     "ar": "وادي عربة"
+    },
+    {
+     "en": "Wadi Rum",
+     "ar": "وادي رم"
+    }
+   ]
+  }
+ ],
+ "rack": [
+  {
+   "image": "rack-wrap-beige.webp",
+   "name_en": "Beige Wrap Set",
+   "name_ar": "طقم بربطة جانبية بيج",
+   "alt_en": "Beige wrap set on a hanger",
+   "alt_ar": "طقم بربطة جانبية بيج على علاقة",
+   "product": "wrap-set",
+   "color": "beige"
+  },
+  {
+   "image": "rack-belted-pink.webp",
+   "name_en": "Pink Belted Set",
+   "name_ar": "طقم بحزام وردي",
+   "alt_en": "Pink belted set on a hanger",
+   "alt_ar": "طقم بحزام وردي على علاقة",
+   "product": "belted-set",
+   "color": "pink"
+  },
+  {
+   "image": "rack-hooded-burgundy.webp",
+   "name_en": "Burgundy Hooded Set",
+   "name_ar": "طقم بقبعة خمري",
+   "alt_en": "Burgundy hooded set on a hanger",
+   "alt_ar": "طقم بقبعة خمري على علاقة",
+   "product": "hooded-set",
+   "color": "burgundy"
+  },
+  {
+   "image": "rack-belted-sage.webp",
+   "name_en": "Sage Belted Set",
+   "name_ar": "طقم بحزام ميرمية",
+   "alt_en": "Sage belted set on a hanger",
+   "alt_ar": "طقم بحزام ميرمية على علاقة",
+   "product": "belted-set",
+   "color": "sage"
+  },
+  {
+   "image": "rack-wrap-black.webp",
+   "name_en": "Black Wrap Set",
+   "name_ar": "طقم بربطة جانبية أسود",
+   "alt_en": "Black wrap set on a hanger",
+   "alt_ar": "طقم بربطة جانبية أسود على علاقة",
+   "product": "wrap-set",
+   "color": "black"
+  }
+ ],
+ "looks": [
+  {
+   "image": "set-wrap-beige-2.webp",
+   "name": "Beige Wrap Set",
+   "alt": "Beige wrap set styled with a printed hijab",
+   "product": "wrap-set",
+   "color": "beige"
+  },
+  {
+   "image": "set-wrap-black-2.webp",
+   "name": "Black Wrap Set",
+   "alt": "Black wrap set styled with a printed hijab",
+   "product": "wrap-set",
+   "color": "black"
+  },
+  {
+   "image": "set-wrap-navy-2.webp",
+   "name": "Navy Wrap Set",
+   "alt": "Navy wrap set styled with a printed hijab",
+   "product": "wrap-set",
+   "color": "navy"
+  }
+ ]
+}

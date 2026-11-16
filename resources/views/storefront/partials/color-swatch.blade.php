@@ -1,0 +1,2 @@
+{{-- A product colour's swatch: the owner's own colour, else its family's (REQ-CMS-46). An SVG fill is not a style, so the page's security policy allows it (REQ-SEC-17). --}}
+<span class="ds-swatch ds-swatch--color {{ $class ?? '' }}" aria-hidden="true">@if ($hex)<svg class="ds-swatch__fill" viewBox="0 0 1 1" preserveAspectRatio="none" focusable="false"><rect width="1" height="1" fill="{{ $hex }}"/></svg>@endif</span>

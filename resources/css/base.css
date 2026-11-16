@@ -1,0 +1,187 @@
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    min-width: calc(var(--spacing) * 80);
+    background: var(--color-surface);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-surface);
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-selection);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: var(--border-thick) solid var(--color-focus);
+    outline-offset: var(--outline-offset);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button:not(:disabled), summary, select {
+    cursor: pointer;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: var(--leading-heading); /* REQ-UX-08; the display titles set their own (Appendix D.3, D.5.12, D.6) */
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance; /* REQ-UX-50 */
+  }
+
+  p {
+    max-inline-size: 65ch; /* REQ-UX-09 */
+  }
+
+  :disabled, [aria-disabled="true"] {
+    cursor: not-allowed; /* REQ-UX-26 */
+  }
+
+  /* Prices line up digit by digit (REQ-UX-49). */
+  .ds-card__price, .ds-pdp__price, .ds-cart-line__total, .ds-summary__row, .ds-drawer__row, .ds-summary__line {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Arrows and chevrons point the reading direction on Arabic pages (REQ-UX-52). */
+  [dir="rtl"] .ds-icon--dir {
+    transform: scaleX(-1);
+  }
+
+  /* Reduced motion: everything stops except short fades (REQ-UX-33). */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation: none !important;
+      transition-property: opacity !important;
+      transition-duration: var(--duration-fast) !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  input[type="number"] {
+    -webkit-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@layer components {
+  .ds-skip-link {
+    top: calc(var(--spacing) * 2.5);
+    inset-inline-start: calc(var(--spacing) * 2.5);
+    z-index: var(--z-skip);
+    padding: var(--space-12) var(--space-16);
+    background: var(--color-ink);
+    color: var(--color-white);
+    font-size: var(--text-sm);
+    transition: transform var(--duration-fast) var(--ease-standard);
+    position: fixed;
+    transform: translateY(-160%);
+  }
+
+  .ds-skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .ds-body.is-locked {
+    overflow: hidden;
+  }
+
+  .ds-page-shell {
+    min-height: var(--size-full-screen);
+    flex-direction: column;
+    display: flex;
+  }
+
+  .ds-page-shell > .ds-main {
+    flex: 1;
+  }
+
+  .ds-main {
+    min-height: var(--size-page-min);
+    outline: none;
+  }
+
+  .ds-section {
+    width: min(calc(100% - var(--spacing) * 8), var(--container-content));
+    padding-block: var(--space-48) var(--space-64);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+  }
+
+  @media (min-width: 48.0625rem) {
+    .ds-section {
+      width: min(calc(100% - var(--spacing) * 12), var(--container-content));
+      padding-block: var(--space-64) var(--space-96);
+    }
+  }
+
+  .ds-eyebrow {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-brand);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  @media (min-width: 48.0625rem) {
+    .ds-eyebrow {
+      font-size: var(--text-lg);
+    }
+  }
+
+  .ds-section-heading {
+    text-align: center;
+  }
+
+  .ds-section-heading__title {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+  }
+
+  @media (min-width: 48.0625rem) {
+    .ds-section-heading__title {
+      font-size: var(--text-6xl);
+    }
+  }
+
+  .ds-section-heading__rule {
+    width: calc(var(--spacing) * 12);
+    height: var(--border-thick);
+    margin: var(--space-12) auto var(--space-32);
+    background: var(--color-rose);
+    display: block;
+  }
+
+  /* Amounts such as "17 JD" keep their order on Arabic pages; texts in the same spots stay right to left. */
+  [data-price], [data-bag-subtotal], [data-line-total], [data-checkout-total], [data-checkout-shipping] {
+    unicode-bidi: plaintext;
+  }
+}

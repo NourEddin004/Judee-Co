@@ -1,0 +1,329 @@
+/*
+  JUDE store admin: Filament dressed in the storefront's tokens (REQ-UX-01, REQ-UX-02),
+  laid out like the admin preview: plum sidebar on computers, bottom menu on phones (SRS 4.1).
+*/
+@import "fonts.css";
+@import "tokens.css";
+@import "components/icon.css";
+@import "components/home.css";
+
+.fi-body {
+  font-family: var(--font-body);
+  background: var(--color-blush-50);
+  color: var(--color-ink);
+}
+
+.fi-header-heading,
+.fi-section-header-heading,
+.fi-modal-heading,
+.fi-simple-header-heading {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+}
+
+.fi-logo {
+  font-family: var(--font-brand);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-brand);
+}
+
+/* Computers: the plum sidebar of the preview */
+@media (min-width: 64rem) {
+  .fi-sidebar {
+    background: var(--color-plum);
+  }
+
+  .fi-sidebar .fi-logo,
+  .fi-sidebar .fi-sidebar-item-btn,
+  .fi-sidebar .fi-sidebar-group-btn,
+  .fi-sidebar .fi-icon-btn {
+    color: var(--color-gold);
+  }
+
+  .fi-sidebar .fi-sidebar-item-btn .fi-icon,
+  .fi-sidebar .fi-sidebar-group-label,
+  .fi-sidebar .fi-sidebar-item-label {
+    color: inherit;
+  }
+
+  .fi-sidebar .fi-sidebar-header {
+    background: var(--color-plum);
+    box-shadow: none;
+  }
+
+  .fi-sidebar .fi-sidebar-item-btn:hover,
+  .fi-sidebar .fi-sidebar-item-btn:focus-visible {
+    background: var(--color-admin-side-hover);
+    color: var(--color-on-brand);
+  }
+
+  .fi-sidebar .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    background: var(--color-admin-side-active);
+    color: var(--color-on-brand);
+  }
+
+  .fi-sidebar .fi-sidebar-item.fi-active .fi-sidebar-item-label,
+  .fi-sidebar .fi-sidebar-item.fi-active .fi-icon {
+    color: var(--color-on-brand);
+  }
+}
+
+.fi-section,
+.fi-ta-ctn {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+/* Mobile first (REQ-UX-57): the phone layout is the base, with the bottom menu as in the
+   preview; from 1024 px the sidebar takes over and the bottom menu goes away. */
+.jude-bottom-nav {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: var(--z-header);
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  border-top: var(--border-thin) solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.jude-bottom-nav a,
+.jude-bottom-nav button {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  min-height: var(--size-admin-bottom-nav);
+  padding-block: var(--space-8);
+  border: 0;
+  background: none;
+  color: var(--color-ink-muted);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.jude-bottom-nav [aria-current="page"] {
+  color: var(--color-rose);
+}
+
+.jude-bottom-nav .fi-icon {
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
+}
+
+.fi-main-ctn {
+  padding-bottom: var(--size-admin-bottom-nav);
+}
+
+/* On phones, a form's Save bar stays visible above the bottom menu (REQ-UX-61). */
+.fi-sc-actions.fi-sticky .fi-ac {
+  bottom: calc(var(--size-admin-bottom-nav) + env(safe-area-inset-bottom, 0));
+}
+
+@media (min-width: 64rem) {
+  .jude-bottom-nav {
+    display: none;
+  }
+
+  .fi-main-ctn {
+    padding-bottom: revert-layer;
+  }
+
+  .fi-sc-actions.fi-sticky .fi-ac {
+    bottom: var(--space-16);
+  }
+}
+
+/* Hero rack live preview (REQ-RCK-11) */
+.jude-rack-preview {
+  padding: var(--space-16);
+  border: var(--border-thin) solid var(--color-line);
+  border-radius: var(--radius-xl);
+  background: var(--gradient-hero);
+  box-shadow: var(--shadow-card);
+}
+
+.jude-rack-preview .ds-hero__stage {
+  width: min(100%, var(--size-admin-preview));
+  margin-inline: auto;
+}
+
+.jude-rack-preview__label {
+  color: var(--color-ink-muted);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.jude-rack-preview__empty {
+  padding-block: var(--space-32);
+  color: var(--color-ink-muted);
+  text-align: center;
+}
+
+/* Order sheet (REQ-ORD-12 to REQ-ORD-18): status chips and the lines, as in the admin preview */
+.jude-status-chips .fi-btn {
+  min-height: var(--size-tap);
+  border-radius: var(--radius-full);
+}
+
+.jude-order-lines {
+  display: grid;
+}
+
+.jude-order-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  min-width: 0;
+  padding-block: var(--space-12);
+  border-bottom: var(--border-thin) solid var(--color-line);
+}
+
+.jude-order-line:last-child {
+  border-bottom: 0;
+}
+
+.jude-order-line__thumb {
+  flex: none;
+  width: var(--size-admin-order-thumb-w);
+  height: var(--size-admin-order-thumb-h);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-sunken);
+  object-fit: cover;
+}
+
+.jude-order-line__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.jude-order-line__name {
+  overflow: hidden;
+  font-weight: var(--font-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jude-order-line__meta {
+  color: var(--color-ink-muted);
+  font-size: var(--text-sm);
+}
+
+.jude-order-line__money {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+}
+
+.jude-order-line--total .jude-order-line__money {
+  font-size: var(--text-base);
+}
+
+/* Dashboard: one plain box per order status across the top, each opening that list */
+.jude-statuses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--space-32) * 4.5), 1fr));
+  gap: var(--space-12);
+}
+
+.jude-statuses__item,
+.jude-summary__card {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-16);
+  border: var(--border-thin) solid var(--color-line);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.jude-statuses__item:hover,
+.jude-statuses__item:focus-visible,
+a.jude-summary__card[href]:hover,
+a.jude-summary__card[href]:focus-visible {
+  border-color: var(--color-line-bold);
+}
+
+/* "New" needs the owner, so only it gets the JUDE rose */
+.jude-statuses__item--new {
+  border-color: var(--color-rose);
+}
+
+.jude-statuses__label,
+.jude-summary__label {
+  color: var(--color-ink-muted);
+  font-size: var(--text-sm);
+}
+
+.jude-statuses__count,
+.jude-summary__value {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Dashboard: the two cards, one above the other */
+.jude-summary {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.jude-summary__note {
+  color: var(--color-ink-muted);
+  font-size: var(--text-sm);
+}
+
+.jude-summary__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.jude-order-thumb {
+  border-radius: var(--radius-md);
+  background: var(--color-surface-sunken);
+  object-fit: cover;
+}
+
+/* Form fields keep 16 px text at every width, so phones and tablets never zoom in on a tapped field (REQ-UX-06, REQ-UX-60). */
+.fi-input,
+.fi-select-input,
+.fi-fo-textarea textarea,
+.fi-fo-rich-editor .tiptap {
+  font-size: var(--text-input);
+}
+
+/* Wide lists scroll inside their own frame on phones, never the page (REQ-UX-60). */
+.fi-ta-content {
+  overflow-x: auto;
+}
+
+/* English / العربية button in the top bar and on the sign-in page */
+.jude-admin-lang {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-tap);
+  padding-inline: var(--space-12);
+  border: var(--border-thin) solid var(--color-line-bold);
+  border-radius: var(--radius-full);
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+}
+
+.jude-admin-lang:hover,
+.jude-admin-lang:focus-visible {
+  border-color: var(--color-rose);
+  color: var(--color-rose);
+}
+
+.fi-simple-page .jude-admin-lang {
+  align-self: flex-end;
+}

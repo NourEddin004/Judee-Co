@@ -1,0 +1,11 @@
+# MySQL settings for the site. Copy to /etc/mysql/mysql.conf.d/jude.cnf, then:
+#   sudo systemctl restart mysql
+[mysqld]
+# Only programs on this server can connect (REQ-DB-02).
+bind-address = 127.0.0.1
+mysqlx-bind-address = 127.0.0.1
+
+# Log every query slower than 1 second, and keep doing so after a restart (REQ-DB-30).
+slow_query_log = ON
+long_query_time = 1
+slow_query_log_file = /var/log/mysql/mysql-slow.log

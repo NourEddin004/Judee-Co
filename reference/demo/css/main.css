@@ -1,0 +1,28 @@
+/*
+  JUDE storefront styles — entry point.
+  tokens.css holds every raw value (colors, type, spacing, radius, shadows, motion);
+  component files only reference those tokens with var(--token).
+*/
+@layer base, components;
+
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400;1,500&family=Merriweather:wght@300;400&family=Montserrat:wght@400;500;600;700&display=swap");
+
+@import "tokens.css";
+@import "reset.css";
+@import "base.css";
+
+@import "components/icon.css";
+@import "components/button.css";
+@import "components/form.css";
+@import "components/swatch.css";
+@import "components/header.css";
+@import "components/modal.css";
+@import "components/footer.css";
+@import "components/home.css";
+@import "components/card.css";
+@import "components/shop.css";
+@import "components/product.css";
+@import "components/cart.css";
+@import "components/checkout.css";
+@import "components/pages.css";
+@import "components/feedback.css";

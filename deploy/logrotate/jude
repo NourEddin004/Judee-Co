@@ -1,0 +1,11 @@
+# Copy to /etc/logrotate.d/jude. The site's own logs (storage/logs/laravel-*.log) already keep
+# 14 days and need nothing here.
+/var/www/jude/shared/storage/logs/queue.log
+/var/log/mysql/mysql-slow.log {
+    weekly
+    rotate 8
+    compress
+    missingok
+    notifempty
+    copytruncate
+}

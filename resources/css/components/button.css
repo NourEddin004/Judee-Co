@@ -1,0 +1,205 @@
+@layer components {
+  .ds-btn {
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-8);
+    min-height: calc(var(--spacing) * 12);
+    padding: var(--space-12) var(--space-24);
+    border: var(--border-thin) solid var(--color-transparent);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    text-align: center;
+    transition-property: transform, background-color, border-color;
+    transition-duration: var(--duration-base);
+    transition-timing-function: var(--ease-standard);
+    display: inline-flex;
+  }
+
+  .ds-btn .ds-icon {
+    width: calc(var(--spacing) * 4.5);
+    height: calc(var(--spacing) * 4.5);
+  }
+
+  .ds-btn:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  /* A link styled as a button that cannot be used yet (bag drawer checkout with an empty bag). */
+  .ds-btn[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+    pointer-events: none;
+  }
+
+  /* Every button shrinks slightly while pressed (REQ-UX-25). */
+  .ds-btn:not(:disabled):active, .ds-text-btn:not(:disabled):active {
+    transform: scale(var(--scale-press));
+    transition-duration: var(--duration-fast);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-btn {
+      transition: none;
+    }
+  }
+
+  .ds-btn--primary {
+    background: var(--color-rose);
+    color: var(--color-on-brand);
+  }
+
+  /* Hover: one step darker (REQ-UX-24). Demo: lifted 2px with a shadow. */
+  .ds-btn--primary:not(:disabled):hover {
+    background: var(--color-rose-strong);
+  }
+
+  .ds-btn--secondary {
+    border-color: var(--color-rose);
+    background: var(--color-white);
+    color: var(--color-ink);
+  }
+
+  .ds-btn--secondary:not(:disabled):hover {
+    border-color: var(--color-ink);
+    background: var(--color-blush-50);
+  }
+
+  .ds-btn--block {
+    width: 100%;
+  }
+
+  /* Waiting for the server: a spinner in place of the label, the button keeps its width (REQ-UX-28). */
+  .ds-btn__spinner {
+    display: none;
+  }
+
+  .ds-btn.is-busy {
+    cursor: progress;
+    position: relative;
+  }
+
+  .ds-btn.is-busy .ds-btn__label {
+    visibility: hidden;
+  }
+
+  .ds-btn.is-busy .ds-btn__spinner {
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+    margin: auto;
+    border: var(--border-thick) solid currentColor;
+    border-inline-end-color: var(--color-transparent);
+    border-radius: var(--radius-full);
+    animation: ds-spin var(--duration-slow) linear infinite;
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-btn.is-busy .ds-btn__spinner {
+      animation: none;
+    }
+  }
+
+  @keyframes ds-spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  .ds-btn--compact {
+    min-height: var(--size-tap);
+    padding-inline: var(--space-12);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-wider);
+  }
+
+  .ds-btn--pill {
+    border-radius: var(--radius-full);
+    padding-inline: var(--space-32);
+    text-transform: none;
+    letter-spacing: var(--tracking-normal);
+    font-size: var(--text-lg);
+  }
+
+  .ds-icon-btn {
+    width: var(--size-tap);
+    height: var(--size-tap);
+    border-radius: var(--radius-full);
+    background: var(--color-transparent);
+    color: inherit;
+    transition-property: color, background-color, transform;
+    transition-duration: var(--duration-base);
+    transition-timing-function: var(--ease-standard);
+    border: 0;
+    flex-shrink: 0;
+    place-items: center;
+    display: inline-grid;
+    position: relative;
+  }
+
+  .ds-icon-btn:hover {
+    background: var(--color-blush-100);
+    color: var(--color-wine);
+  }
+
+  .ds-icon-btn:active {
+    transform: scale(var(--scale-press));
+  }
+
+  .ds-text-btn {
+    min-height: var(--size-tap);
+    padding-inline: var(--space-8);
+    border-radius: var(--radius-md);
+    background: var(--color-transparent);
+    font-size: var(--text-xs);
+    color: inherit;
+    transition: background-color var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+    border: 0;
+  }
+
+  .ds-text-btn:not(:disabled):hover {
+    background: var(--color-blush-50);
+    color: var(--color-wine);
+  }
+
+  .ds-text-btn:disabled {
+    color: var(--color-ink-muted);
+    text-decoration: underline;
+  }
+
+  .ds-badge {
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-full);
+    background: var(--color-glass-badge);
+    color: var(--color-plum);
+    font-size: var(--text-micro);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    -webkit-backdrop-filter: blur(var(--blur-sm));
+    backdrop-filter: blur(var(--blur-sm));
+    display: inline-block;
+  }
+
+  .ds-count {
+    top: calc(var(--spacing) * .5);
+    min-width: var(--size-count);
+    height: var(--size-count);
+    padding-inline: var(--space-4);
+    border: var(--border-thick) solid var(--color-white);
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-size: var(--text-3xs);
+    font-weight: var(--font-weight-bold);
+    place-items: center;
+    display: grid;
+    position: absolute;
+    inset-inline-end: 0;
+  }
+}

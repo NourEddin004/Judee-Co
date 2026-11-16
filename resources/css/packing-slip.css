@@ -1,0 +1,155 @@
+/* Packing slip (REQ-ORD-22): plain black on white, fits one A4 or A5 page. */
+@import "fonts.css";
+@import "tokens.css";
+
+.slip {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+.slip__page {
+  max-width: var(--container-dialog);
+  margin-inline: auto;
+  padding: var(--space-32) var(--space-16);
+}
+
+.slip__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding-bottom: var(--space-16);
+  border-bottom: var(--border-thick) solid var(--color-ink);
+}
+
+.slip__brand {
+  font-family: var(--font-brand);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-brand);
+}
+
+.slip__title {
+  text-align: end;
+}
+
+.slip h1,
+.slip h2 {
+  margin: 0;
+  font-family: var(--font-display);
+}
+
+.slip h1 {
+  font-size: var(--text-xl);
+}
+
+.slip h2 {
+  margin-bottom: var(--space-8);
+  font-size: var(--text-md);
+}
+
+.slip__title p {
+  margin: var(--space-4) 0 0;
+  color: var(--color-ink-soft);
+}
+
+.slip__block {
+  margin-top: var(--space-24);
+}
+
+.slip__details {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.slip__details div {
+  display: grid;
+  grid-template-columns: var(--size-slip-label) 1fr;
+  gap: var(--space-12);
+}
+
+.slip__details dt {
+  color: var(--color-ink-soft);
+}
+
+.slip__details dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.slip__items {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.slip__items th,
+.slip__items td {
+  padding: var(--space-8) var(--space-4);
+  border-bottom: var(--border-thin) solid var(--color-line-strong);
+  text-align: start;
+  vertical-align: top;
+}
+
+.slip__items thead th {
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+}
+
+.slip__items tfoot th {
+  font-weight: var(--font-weight-normal);
+  text-align: end;
+}
+
+.slip__items .slip__num {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.slip__total th,
+.slip__total td {
+  border-bottom: 0;
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.slip__print {
+  min-height: var(--size-tap);
+  margin-top: var(--space-32);
+  padding-inline: var(--space-24);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-rose);
+  color: var(--color-on-brand);
+  font: inherit;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+
+.slip__print:hover {
+  background: var(--color-rose-strong);
+}
+
+.slip__print:focus-visible {
+  outline: var(--border-thick) solid var(--color-focus);
+  outline-offset: var(--outline-offset);
+}
+
+@media print {
+  .slip__page {
+    max-width: none;
+    padding: 0;
+  }
+
+  .slip__print {
+    display: none;
+  }
+}
