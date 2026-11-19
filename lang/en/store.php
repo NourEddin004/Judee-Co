@@ -298,8 +298,6 @@ return [
         'cart' => 'Cart',
         'copyright' => '© 2026 JUDE',
         'legal' => 'Cash on delivery · Delivery across Jordan and the Gulf',
-        'credit' => 'Prepared by',
-        'credit_name' => 'RafaqTech',
     ],
 
     // Phone countries in the order of Appendix D.8.3 (REQ-DMO-58).

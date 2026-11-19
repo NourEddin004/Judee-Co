@@ -36,7 +36,9 @@
         <div class="ds-footer__legal">
             <p>{{ __('store.footer.copyright') }}</p>
             <p>{{ __('store.footer.legal') }}</p>
-            <p>{{ __('store.footer.credit') }} <a href="https://www.rafaqtech.com" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 2px;">{{ __('store.footer.credit_name') }}</a></p>
+        </div>
+        <div class="rt-badge-row rt-badge-row--store">
+            @include('partials.rafaqtech-badge')
         </div>
     </div>
 </footer>
