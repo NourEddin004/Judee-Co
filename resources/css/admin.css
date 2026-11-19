@@ -327,3 +327,35 @@ a.jude-summary__card[href]:focus-visible {
 .fi-simple-page .jude-admin-lang {
   align-self: flex-end;
 }
+
+/* "Back to dashboard" at the top of every admin page; the arrow points the other way in Arabic. */
+.jude-admin-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  align-self: flex-start;
+  min-height: var(--size-tap);
+  padding-inline: var(--space-12);
+  border: var(--border-thin) solid var(--color-line-bold);
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+}
+
+.jude-admin-back svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+[dir="rtl"] .jude-admin-back svg {
+  transform: scaleX(-1);
+}
+
+.jude-admin-back:hover,
+.jude-admin-back:focus-visible {
+  border-color: var(--color-rose);
+  color: var(--color-rose);
+}

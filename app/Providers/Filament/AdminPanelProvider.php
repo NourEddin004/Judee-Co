@@ -91,6 +91,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->renderHook(PanelsRenderHook::HEAD_END, fn () => Blade::render("@vite('resources/css/admin.css')"))
             ->renderHook(PanelsRenderHook::BODY_END, fn () => view('admin.bottom-nav'))
+            // A clear way back to the dashboard from every other admin page.
+            ->renderHook(PanelsRenderHook::PAGE_START, fn () => view('admin.back-to-dashboard'))
             // "Prepared by RafaqTech" credit under every admin page, sign-in included.
             ->renderHook(PanelsRenderHook::FOOTER, fn () => view('admin.credit'))
             // English / العربية: the admin in either language, right to left in Arabic.

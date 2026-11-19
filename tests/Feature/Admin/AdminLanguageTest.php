@@ -59,4 +59,15 @@ class AdminLanguageTest extends TestCase
         $this->get('/admin/language/fr')->assertNotFound();
         $this->from('https://evil.example/x')->get('/admin/language/ar')->assertRedirect(url('/admin'));
     }
+
+    #[Test]
+    public function every_admin_page_but_the_dashboard_has_a_back_button_in_both_languages(): void
+    {
+        $this->asOwner();
+
+        $this->get('/admin')->assertOk()->assertDontSee('jude-admin-back', false);
+        $this->get('/admin/orders')->assertOk()->assertSee('jude-admin-back', false)->assertSee('Back to dashboard');
+        $this->get('/admin/products')->assertOk()->assertSee('Back to dashboard');
+        $this->withCookie(AdminLocale::COOKIE, 'ar')->get('/admin/orders')->assertOk()->assertSee('العودة إلى الرئيسية');
+    }
 }
