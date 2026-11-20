@@ -8,7 +8,9 @@ use App\Filament\Resources\SizeGuides\Pages\ManageSizeGuides;
 use App\Filament\Widgets\OrderStatuses;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\SizeGuide;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\RateLimiter;
 use Livewire\Livewire;
@@ -143,5 +145,14 @@ class NewFeaturesTest extends TestCase
             ->assertHasNoTableActionErrors();
 
         $this->assertSame([['size' => 'S', 'height_min' => 150, 'height_max' => 158, 'weight_min' => 40, 'weight_max' => 52]], $guide->fresh()->fitRows());
+    }
+
+    #[Test]
+    public function a_size_guide_cached_without_the_fit_column_still_opens_the_product_page(): void
+    {
+        $guide = Category::query()->where('slug', 'sets')->firstOrFail()->sizeGuide;
+        $stale = (new SizeGuide)->newFromBuilder(Arr::except($guide->getAttributes(), 'fit'));
+
+        $this->assertSame($guide->fitRows(), $stale->fitRows());
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Domain\Catalog\SizeFit;
+use App\Support\StoreCache;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -28,6 +29,9 @@ return new class extends Migration
                 DB::table('size_guides')->where('id', $guide->id)->update(['fit' => json_encode($fit)]);
             }
         }
+
+        // The storefront caches categories with their size guides; drop that copy so the new column shows.
+        app(StoreCache::class)->flush();
     }
 
     public function down(): void
