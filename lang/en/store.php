@@ -284,6 +284,32 @@ return [
         'cta' => 'Go home',
     ],
 
+    'errors' => [
+        'code' => 'Error :code',
+        'home' => 'Go home',
+        'shop' => 'Continue shopping',
+        'retry' => 'Try again',
+        'back' => 'Go back',
+        'contact' => 'Contact us',
+        'dashboard' => 'Back to dashboard',
+        'sign_in' => 'Sign in again',
+        'admin' => 'JUDE admin',
+        '403' => ['tab' => 'Private page', 'title' => 'This page is private', 'body' => 'You do not have access to this page. If you think this is a mistake, contact us and we will help.'],
+        '419' => ['tab' => 'Page expired', 'title' => 'This page timed out', 'body' => 'For your safety, the page expired after a while without activity. Go back, refresh the page and try again. Your bag is still saved.'],
+        '429' => ['tab' => 'Too many tries', 'title' => 'Too many tries', 'body' => 'You went a little fast for us. Please wait a minute, then try again.'],
+        '500' => ['tab' => 'Something went wrong', 'title' => 'Something went wrong on our side', 'body' => 'The problem is with us, not you. Please try again in a moment, or continue shopping.'],
+        '503' => ['tab' => 'Back soon', 'title' => 'We will be right back', 'body' => 'The store is getting a quick update. Please check back in a few minutes.'],
+        'other' => ['tab' => 'Something did not work', 'title' => 'Something did not go through', 'body' => 'Please go back and try again. If it keeps happening, contact us.'],
+        'admin_body' => [
+            '403' => 'Your account cannot open this page.',
+            '404' => 'This admin page does not exist, or the item was deleted.',
+            '419' => 'Your session expired after a while without activity. Sign in again to continue; nothing was saved from the last step.',
+            '429' => 'Too many tries in a short time. Please wait a minute, then try again.',
+            '500' => 'Something went wrong while opening this page. Please try again. If it keeps happening, tell RafaqTech what you clicked.',
+            '503' => 'The store is being updated. The admin will be back in a few minutes.',
+        ],
+    ],
+
     'footer' => [
         'nav' => 'Footer navigation',
         'shop' => 'Shop',

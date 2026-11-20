@@ -87,4 +87,32 @@
     width: calc(var(--spacing) * 5);
     height: calc(var(--spacing) * 5);
   }
+
+  /* Error pages (403, 404, 419, 429): the empty state with the error number and two ways on. */
+  .ds-error .ds-empty__title {
+    margin-top: var(--space-8);
+  }
+
+  .ds-error__code {
+    margin: var(--space-16) 0 0;
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-rose-strong);
+  }
+
+  .ds-error__actions {
+    gap: var(--space-12);
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+  }
+
+  @media (max-width: 30rem) {
+    .ds-error__actions {
+      flex-direction: column;
+      align-self: stretch;
+    }
+  }
 }

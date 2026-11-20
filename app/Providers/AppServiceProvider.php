@@ -120,6 +120,12 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // The live store never shows error details (code, file paths, settings) to visitors, even if
+        // APP_DEBUG was left on by mistake: they see the branded error page instead.
+        if ($this->app->isProduction() && config('app.debug')) {
+            config(['app.debug' => false]);
+        }
+
         // Admin passwords (My account and the reset page): at least 12 characters with a capital
         // letter, a small letter, a number and a symbol.
         Password::defaults(fn () => Password::min(12)->letters()->mixedCase()->numbers()->symbols());

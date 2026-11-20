@@ -4,6 +4,7 @@ use App\Http\Middleware\SameOriginOnly;
 use App\Http\Middleware\ScrubInvalidText;
 use App\Http\Middleware\SecurityHeaders;
 use App\Http\Middleware\SetLocale;
+use App\Support\ErrorPage;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -28,14 +29,15 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append(ScrubInvalidText::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        // The Not Found page is in the customer's language (D.6.10).
-        $exceptions->render(function (NotFoundHttpException $exception, Request $request) {
+        // Every error page is in the visitor's language (D.6.10): the shop's, or the admin's in the admin.
+        $exceptions->render(function (Throwable $exception, Request $request) {
             // The language button on the Not Found page works as on every other page.
-            if ($request->isMethodSafe() && $request->query->has('lang')) {
+            if ($exception instanceof NotFoundHttpException && ! ErrorPage::isAdmin($request)
+                && $request->isMethodSafe() && $request->query->has('lang')) {
                 return SetLocale::switchTo($request);
             }
 
-            app()->setLocale(SetLocale::fromRequest($request));
+            app()->setLocale(ErrorPage::locale($request));
 
             return null;
         });
