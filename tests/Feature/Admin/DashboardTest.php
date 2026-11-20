@@ -59,7 +59,7 @@ class DashboardTest extends TestCase
         );
         Livewire::test(OrderStatuses::class)
             ->assertSeeInOrder(['New', '2', 'Confirmed', '1', 'Out for delivery', '1', 'Delivered', '2', 'Cancelled', '1'])
-            ->assertSeeHtml('/admin/orders?activeTab=confirmed');
+            ->assertSeeHtml('/admin/orders?tab=confirmed');
     }
 
     #[Test]

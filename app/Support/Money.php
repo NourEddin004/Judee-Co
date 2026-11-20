@@ -49,6 +49,11 @@ final class Money implements Stringable
         return $this->hundredths === $other->hundredths;
     }
 
+    public function isLessThan(self $other): bool
+    {
+        return $this->hundredths < $other->hundredths;
+    }
+
     /** "12.50", ready for a decimal column. */
     public function toDecimal(): string
     {
@@ -63,6 +68,12 @@ final class Money implements Stringable
     public function __toString(): string
     {
         return $this->toDecimal();
+    }
+
+    /** A delivery fee: "Free" when it is zero (free delivery from 50 JD), else "3 JD". */
+    public static function fee(self|string|int|float|null $amount): string
+    {
+        return $amount !== null && (float) (string) $amount === 0.0 ? __('store.free_delivery.free') : self::jod($amount);
     }
 
     public static function jod(self|string|int|float|null $amount): string

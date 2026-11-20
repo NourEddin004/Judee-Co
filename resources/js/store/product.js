@@ -1,7 +1,7 @@
 // Product page: gallery, colours, quantity stepper, required size, "Add to bag", back link (D.5.8).
 import { bag, text } from "./core.js";
 import { showToast } from "./ui.js";
-import { renderBag } from "./bag.js";
+import { showAdded } from "./bag.js";
 
 /** A thumbnail shows its photo in the frame (REQ-DMO-54). The gallery listens, so a colour's photos put in later work too. */
 function initGallery() {
@@ -105,8 +105,11 @@ function initBuyForm() {
     }
     const quantity = Math.min(bag.maxQuantity, Math.max(1, Number(form.querySelector('[name="quantity"]').value) || 1));
     bag.add(Number(form.dataset.buy), quantity, size);
-    showToast(text("added", { product: form.dataset.name }), { opensBag: true }); // REQ-DMO-33
-    renderBag();
+    // The bag opens with the new line marked, so it is plain that it went in (2026-11-20).
+    showAdded(Number(form.dataset.buy), size);
+    const button = form.querySelector("[data-add-button]");
+    button.classList.add("is-added");
+    window.setTimeout(() => button.classList.remove("is-added"), 1800);
   });
 }
 

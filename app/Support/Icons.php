@@ -8,7 +8,7 @@ use InvalidArgumentException;
 class Icons
 {
     /** Icons that point a direction and are mirrored on Arabic pages (REQ-UX-52). */
-    public const DIRECTIONAL = ['arrow-right', 'chevron-left', 'chevron-right'];
+    public const DIRECTIONAL = ['arrow-right', 'chevron-left', 'chevron-right', 'truck'];
 
     private static ?array $icons = null;
 

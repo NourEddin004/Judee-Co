@@ -1,0 +1,606 @@
+/*
+  Added 2026-11-20: the bottom-sheet popup (Track order, Find my size), order tracking, size help,
+  the free-delivery bar, the receipt note on the thank-you page and the "added to bag" cues.
+*/
+@layer components {
+  /* ---------- Sheet: rises from the bottom on phones, a centred card from tablets up ---------- */
+  .ds-modal--sheet {
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .ds-sheet {
+    width: 100%;
+    max-height: calc(100dvh - var(--space-48));
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    background: var(--color-white);
+    box-shadow: var(--shadow-dialog);
+    flex-direction: column;
+    display: flex;
+    overflow: hidden;
+    animation: ds-sheet-up var(--duration-slow) var(--ease-out);
+  }
+
+  @media (min-width: 48.0625rem) {
+    .ds-modal--sheet {
+      align-items: center;
+      padding: var(--space-24);
+    }
+
+    .ds-sheet {
+      width: min(34rem, 100%);
+      border-radius: var(--radius-2xl);
+      animation-name: ds-sheet-in;
+    }
+  }
+
+  @keyframes ds-sheet-up {
+    from { transform: translateY(24px); opacity: 0; }
+  }
+
+  @keyframes ds-sheet-in {
+    from { transform: scale(.97); opacity: 0; }
+  }
+
+  .ds-sheet__head {
+    gap: var(--space-12);
+    padding: var(--space-16) var(--space-16) var(--space-12);
+    background: var(--color-blush-50);
+    border-bottom: var(--border-thin) solid var(--color-line);
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: start;
+    display: grid;
+  }
+
+  .ds-sheet__icon {
+    width: calc(var(--spacing) * 11);
+    height: calc(var(--spacing) * 11);
+    border-radius: var(--radius-full);
+    background: var(--color-white);
+    color: var(--color-wine);
+    border: var(--border-thin) solid var(--color-line);
+    place-items: center;
+    display: grid;
+  }
+
+  .ds-sheet__title {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-light);
+    line-height: var(--leading-heading);
+  }
+
+  .ds-sheet__intro {
+    margin: var(--space-4) 0 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    color: var(--color-ink-muted);
+  }
+
+  .ds-sheet__close {
+    margin-top: calc(var(--spacing) * -1);
+    margin-inline-end: calc(var(--spacing) * -2);
+  }
+
+  .ds-sheet__body {
+    padding: var(--space-16) var(--space-16) calc(var(--space-24) + env(safe-area-inset-bottom));
+    overflow: auto;
+  }
+
+  /* ---------- Track order ---------- */
+  .ds-header__phone-only {
+    display: inline-grid;
+  }
+
+  @media (min-width: 64rem) {
+    .ds-header__phone-only {
+      display: none;
+    }
+  }
+
+  .ds-track-form__label {
+    margin-bottom: var(--space-8);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    display: block;
+  }
+
+  .ds-track-form__row {
+    gap: var(--space-8);
+    display: grid;
+  }
+
+  @media (min-width: 30rem) {
+    .ds-track-form__row {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+  }
+
+  .ds-track-form__input {
+    letter-spacing: .12em;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+  }
+
+  .ds-track-form__input::placeholder {
+    letter-spacing: normal;
+    font-weight: var(--font-weight-normal);
+    text-transform: none;
+  }
+
+  .ds-track-form__input[aria-invalid="true"] {
+    border-color: var(--color-bad);
+  }
+
+  .ds-track-form__hint {
+    margin: var(--space-8) 0 0;
+    font-size: var(--text-xs);
+    color: var(--color-ink-muted);
+  }
+
+  .ds-track-form__error {
+    margin: var(--space-8) 0 0;
+    padding: var(--space-8) var(--space-12);
+    border-radius: var(--radius-md);
+    background: var(--color-bad-soft);
+    color: var(--color-bad);
+    font-size: var(--text-sm);
+  }
+
+  .ds-track-output:empty {
+    display: none;
+  }
+
+  .ds-track-output {
+    margin-top: var(--space-16);
+  }
+
+  .ds-track-output.is-loading::before {
+    content: attr(data-loading-text);
+    color: var(--color-ink-muted);
+    font-size: var(--text-sm);
+    display: block;
+  }
+
+  .ds-track-output.is-loading:empty {
+    display: block;
+  }
+
+  .ds-track-result {
+    border: var(--border-thin) solid var(--color-line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-16);
+    background: var(--color-white);
+  }
+
+  .ds-track-result:focus {
+    outline: none;
+  }
+
+  .ds-track-result__head > * {
+    margin: 0;
+  }
+
+  .ds-track-result__number {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+  }
+
+  .ds-track-result__status {
+    margin-top: var(--space-8) !important;
+  }
+
+  .ds-track-badge {
+    padding: var(--space-4) var(--space-12);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    background: var(--color-blush-100);
+    color: var(--color-wine-deep);
+    display: inline-block;
+  }
+
+  .ds-track-badge--out_for_delivery { background: var(--color-info-soft); color: var(--color-info); }
+  .ds-track-badge--delivered { background: var(--color-ok-soft); color: var(--color-ok); }
+  .ds-track-badge--cancelled { background: var(--color-bad-soft); color: var(--color-bad); }
+
+  .ds-track-result__message {
+    margin-top: var(--space-8) !important;
+    font-size: var(--text-paragraph);
+    line-height: var(--leading-normal);
+  }
+
+  /* Four steps in a row with a line between the dots; the line fills up to the current step. */
+  .ds-track-steps {
+    margin: var(--space-24) 0 var(--space-8);
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: grid;
+  }
+
+  .ds-track-steps__step {
+    text-align: center;
+    gap: var(--space-8);
+    justify-items: center;
+    display: grid;
+    position: relative;
+  }
+
+  .ds-track-steps__step + .ds-track-steps__step::before {
+    content: "";
+    top: calc(var(--spacing) * 3.5 - 1px);
+    height: 2px;
+    inset-inline: calc(-50% + var(--spacing) * 4) calc(50% + var(--spacing) * 4);
+    background: var(--color-line-strong);
+    position: absolute;
+  }
+
+  .ds-track-steps__step.is-done + .ds-track-steps__step.is-done::before {
+    background: var(--color-wine);
+  }
+
+  .ds-track-steps__dot {
+    width: calc(var(--spacing) * 7);
+    height: calc(var(--spacing) * 7);
+    border: 2px solid var(--color-line-bold);
+    border-radius: var(--radius-full);
+    background: var(--color-white);
+    color: var(--color-white);
+    place-items: center;
+    display: grid;
+  }
+
+  .ds-track-steps__step.is-done .ds-track-steps__dot {
+    border-color: var(--color-wine);
+    background: var(--color-wine);
+  }
+
+  .ds-track-steps__step.is-current .ds-track-steps__dot {
+    box-shadow: 0 0 0 4px var(--color-blush-200);
+  }
+
+  .ds-track-steps__label {
+    font-size: var(--text-2xs);
+    line-height: var(--leading-snug);
+    color: var(--color-ink-muted);
+  }
+
+  .ds-track-steps__step.is-done .ds-track-steps__label {
+    color: var(--color-ink);
+  }
+
+  .ds-track-steps__step.is-current .ds-track-steps__label {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .ds-track-facts {
+    margin: var(--space-16) 0 0;
+    padding-top: var(--space-12);
+    border-top: var(--border-thin) solid var(--color-line);
+    gap: var(--space-8) var(--space-16);
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+  }
+
+  .ds-track-facts__item dt {
+    font-size: var(--text-xs);
+    color: var(--color-ink-muted);
+  }
+
+  .ds-track-facts__item dd {
+    margin: 2px 0 0;
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .ds-track-result__help {
+    margin: var(--space-16) 0 0;
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+  }
+
+  .ds-track-result__help a {
+    color: var(--color-wine);
+    text-decoration: underline;
+    text-underline-offset: var(--underline-offset);
+  }
+
+  .ds-track-page {
+    width: min(100%, 34rem);
+    margin-inline: auto;
+    padding-block: var(--space-32);
+  }
+
+  .ds-track-page__title {
+    margin: var(--space-16) 0 var(--space-8);
+    font-family: var(--font-display);
+    font-size: var(--text-6xl);
+    font-weight: var(--font-weight-light);
+  }
+
+  .ds-track-page__intro {
+    margin: 0 0 var(--space-24);
+    color: var(--color-ink-muted);
+  }
+
+  /* ---------- Receipt note on the thank-you page ---------- */
+  .ds-receipt-callout {
+    margin-top: var(--space-24);
+    padding: var(--space-16);
+    border: var(--border-thin) solid var(--color-blush-300);
+    border-radius: var(--radius-xl);
+    background: var(--color-blush-50);
+    text-align: start;
+    gap: var(--space-12);
+    grid-template-columns: auto minmax(0, 1fr);
+    display: grid;
+  }
+
+  .ds-receipt-callout__icon {
+    width: calc(var(--spacing) * 10);
+    height: calc(var(--spacing) * 10);
+    border-radius: var(--radius-full);
+    background: var(--color-white);
+    color: var(--color-wine);
+    place-items: center;
+    display: grid;
+  }
+
+  .ds-receipt-callout__title {
+    margin: 0;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .ds-receipt-callout__body {
+    margin: var(--space-4) 0 var(--space-12);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    color: var(--color-ink-soft);
+  }
+
+  .ds-receipt-callout__btn {
+    gap: var(--space-8);
+  }
+
+  /* ---------- Find my size ---------- */
+  .ds-fit-trigger {
+    margin-bottom: var(--space-12);
+    padding: var(--space-8) var(--space-12);
+    border: var(--border-thin) dashed var(--color-blush-300);
+    border-radius: var(--radius-full);
+    background: var(--color-blush-50);
+    color: var(--color-wine);
+    font: inherit;
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    align-items: center;
+    gap: var(--space-8);
+    min-height: var(--size-tap);
+    display: inline-flex;
+    transition: background-color var(--duration-base) var(--ease-standard);
+  }
+
+  .ds-fit-trigger:hover {
+    background: var(--color-blush-100);
+  }
+
+  .ds-fit-trigger__result {
+    padding: 2px var(--space-8);
+    border-radius: var(--radius-full);
+    background: var(--color-wine);
+    color: var(--color-white);
+    font-size: var(--text-xs);
+  }
+
+  .ds-fit-form {
+    gap: var(--space-16);
+    display: grid;
+  }
+
+  .ds-fit-form__fields {
+    gap: var(--space-12);
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+  }
+
+  .ds-fit-field {
+    gap: var(--space-8);
+    display: grid;
+  }
+
+  .ds-fit-field__label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .ds-fit-field__box {
+    height: var(--size-tap);
+    border: var(--border-thin) solid var(--color-line-bold);
+    border-radius: var(--radius-lg);
+    background: var(--color-white);
+    align-items: center;
+    display: flex;
+  }
+
+  .ds-fit-field__box:focus-within {
+    border-color: var(--color-focus);
+    outline: 2px solid var(--color-focus);
+    outline-offset: 1px;
+  }
+
+  .ds-fit-field__input {
+    padding-inline: var(--space-12);
+    border: 0;
+    background: transparent;
+    font: inherit;
+    font-size: var(--text-input);
+    outline: none;
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    -moz-appearance: textfield;
+  }
+
+  .ds-fit-field__input::-webkit-outer-spin-button,
+  .ds-fit-field__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .ds-fit-field__input[aria-invalid="true"] {
+    color: var(--color-bad);
+  }
+
+  .ds-fit-field__unit {
+    padding-inline: var(--space-12);
+    color: var(--color-ink-muted);
+    font-size: var(--text-sm);
+  }
+
+  .ds-fit-field__error {
+    font-size: var(--text-xs);
+    color: var(--color-bad);
+  }
+
+  .ds-fit-result {
+    margin-top: var(--space-16);
+    padding: var(--space-16);
+    border-radius: var(--radius-xl);
+    background: var(--color-blush-50);
+    border: var(--border-thin) solid var(--color-blush-200);
+    text-align: center;
+    gap: var(--space-8);
+    display: grid;
+  }
+
+  .ds-fit-result > p {
+    margin: 0;
+  }
+
+  .ds-fit-result__label {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+  }
+
+  .ds-fit-result__size {
+    font-family: var(--font-display);
+    font-size: var(--text-7xl);
+    line-height: 1;
+    color: var(--color-wine);
+  }
+
+  .ds-fit-result__text {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+
+  .ds-fit-note {
+    margin: var(--space-16) 0 0;
+    font-size: var(--text-xs);
+    color: var(--color-ink-muted);
+    text-align: center;
+  }
+
+  /* ---------- Free delivery bar ---------- */
+  .ds-freeship {
+    padding: var(--space-12) var(--space-16);
+    border-bottom: var(--border-thin) solid var(--color-line);
+    background: var(--color-white);
+  }
+
+  .ds-summary .ds-freeship {
+    margin: 0 0 var(--space-16);
+    padding: var(--space-12);
+    border: var(--border-thin) solid var(--color-line);
+    border-radius: var(--radius-lg);
+  }
+
+  .ds-freeship__text {
+    margin: 0 0 var(--space-8);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .ds-freeship.is-reached .ds-freeship__text {
+    color: var(--color-ok);
+  }
+
+  .ds-freeship__track {
+    height: calc(var(--spacing) * 2);
+    border-radius: var(--radius-full);
+    background: var(--color-blush-100);
+    overflow: hidden;
+  }
+
+  .ds-freeship__fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--color-rose), var(--color-wine));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--duration-slow) var(--ease-out);
+    display: block;
+  }
+
+  [dir="rtl"] .ds-freeship__fill {
+    transform-origin: right center;
+    background: linear-gradient(270deg, var(--color-rose), var(--color-wine));
+  }
+
+  .ds-freeship.is-reached .ds-freeship__fill {
+    background: var(--color-ok);
+  }
+
+  .ds-freeship__rule {
+    margin: var(--space-8) 0 0;
+    font-size: var(--text-xs);
+    color: var(--color-ink-muted);
+  }
+
+  .ds-freeship.is-reached .ds-freeship__rule {
+    display: none;
+  }
+
+  /* ---------- "Added to bag" cues ---------- */
+  .ds-count.is-bumped {
+    animation: ds-bump var(--duration-slow) var(--ease-out);
+  }
+
+  @keyframes ds-bump {
+    40% { transform: scale(1.45); }
+  }
+
+  /* The line just added is tinted; the script takes the tint off after a moment, and it fades. */
+  .ds-drawer .ds-cart-line {
+    margin-inline: calc(var(--space-16) * -1);
+    padding-inline: var(--space-16);
+    transition: background-color var(--duration-slow) var(--ease-standard);
+  }
+
+  .ds-cart-line.is-new {
+    background: var(--color-blush-100);
+  }
+
+  .ds-btn.is-added {
+    background: var(--color-ok);
+    border-color: var(--color-ok);
+    color: var(--color-white);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-sheet, .ds-count.is-bumped {
+      animation: none;
+    }
+
+    .ds-freeship__fill, .ds-drawer .ds-cart-line {
+      transition: none;
+    }
+  }
+}

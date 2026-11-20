@@ -170,6 +170,7 @@
             <aside class="ds-summary ds-checkout-layout__summary" aria-labelledby="summary-title">
                 <h2 class="ds-summary__title" id="summary-title">{{ __('store.checkout.summary') }}</h2>
                 <ul class="ds-summary__lines" data-checkout-lines></ul>
+                @include('storefront.partials.free-delivery')
                 <div class="ds-summary__row"><span>{{ __('store.checkout.subtotal') }}</span><strong data-bag-subtotal>0 JD</strong></div>
                 <div class="ds-summary__row">
                     <span>{{ __('store.checkout.delivery') }}</span>

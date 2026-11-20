@@ -14,11 +14,13 @@
         'backToTopOffset' => config('store.back_to_top_offset'),
         'storage' => config('store.storage_keys'),
         'usdRate' => $settings->usdRate(),
+        'freeDeliveryFrom' => config('store.free_delivery_from'),
         'routes' => [
             'check' => store_route('bag.check'),
             'cart' => store_route('cart'),
             'checkout' => store_route('checkout'),
             'shop' => store_route('shop'),
+            'track' => store_route('track'),
         ],
         'text' => [
             'pricePending' => __('store.price_pending'),
@@ -49,6 +51,20 @@
             'bag_changed' => __('store.checkout.bag_changed'),
             'failed' => __('store.checkout.failed'),
             'currency' => __('store.header.currency'),
+            'free' => __('store.free_delivery.free'),
+            'freeAway' => __('store.free_delivery.away'),
+            'freeReached' => __('store.free_delivery.reached'),
+            'addedButton' => __('store.added.button'),
+            'trackInvalid' => __('store.track.error_invalid'),
+            'trackBusy' => __('store.track.error_busy'),
+            'trackFailed' => __('store.track.error_failed'),
+            'trackSearching' => __('store.track.searching'),
+            'fitExact' => __('store.fit.exact'),
+            'fitClosest' => __('store.fit.closest'),
+            'fitChoose' => __('store.fit.choose'),
+            'fitChosen' => __('store.fit.chosen'),
+            'fitInvalidHeight' => __('store.fit.invalid_height'),
+            'fitInvalidWeight' => __('store.fit.invalid_weight'),
         ],
     ];
 @endphp
@@ -87,6 +103,7 @@
     </div>
     @include('storefront.partials.menu')
     @include('storefront.partials.drawer')
+    @include('storefront.partials.track-modal')
     <button type="button" class="ds-back-to-top" data-back-to-top aria-label="{{ __('store.back_to_top') }}" hidden>{!! icon('arrow-up') !!}</button>
     <div class="ds-toast" role="status" aria-live="polite" data-toast>
         {!! icon('check') !!}

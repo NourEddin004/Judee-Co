@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Domain\Catalog\SizeFit;
 use App\Models\Concerns\FlushesStoreCache;
 use App\Models\Concerns\LogsActivity;
 use Illuminate\Database\Eloquent\Model;
@@ -11,9 +12,9 @@ class SizeGuide extends Model
 {
     use FlushesStoreCache, LogsActivity;
 
-    protected $fillable = ['category_id', 'content_en', 'content_ar'];
+    protected $fillable = ['category_id', 'content_en', 'content_ar', 'fit'];
 
-    protected $casts = ['content_en' => 'array', 'content_ar' => 'array'];
+    protected $casts = ['content_en' => 'array', 'content_ar' => 'array', 'fit' => 'array'];
 
     public static function storeCacheKey(): string
     {
@@ -31,5 +32,11 @@ class SizeGuide extends Model
         $locale ??= app()->getLocale();
 
         return ($locale === 'ar' ? $this->content_ar : null) ?: $this->content_en ?: ['columns' => [], 'rows' => []];
+    }
+
+    /** Height and weight per size for "Find my size"; empty when the owner has not filled it in. */
+    public function fitRows(): array
+    {
+        return SizeFit::clean($this->fit);
     }
 }

@@ -3,7 +3,7 @@
 @php
     $columns = [
         __('store.footer.shop') => ['shop' => __('store.footer.all'), 'sets' => __('store.footer.sets'), 'hijabs' => __('store.footer.hijabs'), 'bundles' => __('store.footer.bundles')],
-        __('store.footer.help') => ['contact' => __('store.footer.contact'), 'terms' => __('store.footer.terms')],
+        __('store.footer.help') => ['track' => __('store.track.nav'), 'contact' => __('store.footer.contact'), 'terms' => __('store.footer.terms')],
         __('store.footer.bag') => ['cart' => __('store.footer.cart')],
     ];
     $phone = $settings->get('phone_display');

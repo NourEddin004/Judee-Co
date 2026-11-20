@@ -24,7 +24,7 @@
     </tr>
     <tr>
         <td style="{{ $row }}">{{ __('store.checkout.delivery') }}</td>
-        <td style="{{ $row }}text-align:{{ $end }};" dir="ltr">{{ Money::jod($order->delivery_fee) }}</td>
+        <td style="{{ $row }}text-align:{{ $end }};" dir="ltr">{{ Money::fee($order->delivery_fee) }}</td>
     </tr>
     <tr>
         <td style="{{ $row }}font-weight:600;">{{ __('store.checkout.total') }}</td>

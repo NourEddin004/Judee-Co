@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Domain\Catalog\SizeFit;
 use App\Models\Category;
 use App\Models\Collection;
 use App\Models\Color;
@@ -53,6 +54,8 @@ class CatalogSeeder extends Seeder
                         'columns' => ['المقاس', 'الصدر (سم)', 'الخصر (سم)', 'الورك (سم)'],
                         'rows' => $row['size_guide']['rows'],
                     ],
+                    // Starting height and weight per size for "Find my size", until JUDE's own chart is in.
+                    'fit' => SizeFit::defaultsFor(array_column($row['size_guide']['rows'], 0)),
                 ]);
             }
         }

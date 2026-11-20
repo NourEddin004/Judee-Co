@@ -1,6 +1,6 @@
 // Checkout (D.5.10, D.6.6): summary, phone country and number, delivery fee by city, area picker, the
 // checks of REQ-DMO-56 to 72, and sending the order to the server (REQ-DMO-73 to 75, C.6).
-import { bag, config, csrf, currency, forgetBagProducts, reducedMotion, subtotalOf, text } from "./core.js";
+import { bag, config, csrf, currency, forgetBagProducts, freeDelivery, reducedMotion, subtotalOf, text } from "./core.js";
 import { BLANK_IMAGE, markPlaceholder, renderBag } from "./bag.js";
 import { onCurrencyChange } from "./ui.js";
 import { editPhone, fitPhone, isValidPhone } from "./phone.js";
@@ -59,11 +59,13 @@ export function initCheckout() {
 
   // Delivery and Total follow the chosen city at once (REQ-DMO-59).
   const updateTotals = () => {
+    const subtotal = subtotalOf(items);
+    // Free inside Jordan once the bag reaches the free-delivery amount; the server decides the same way.
+    const freeHere = isJordan() && freeDelivery(subtotal);
     const fee = !isJordan()
       ? Number(destination.selectedOptions[0].dataset.fee)
-      : city.value ? Number(city.selectedOptions[0].dataset.fee) : null;
-    const subtotal = subtotalOf(items);
-    shipping.textContent = fee === null ? text("choose_city") : currency.format(fee);
+      : freeHere ? 0 : city.value ? Number(city.selectedOptions[0].dataset.fee) : null;
+    shipping.textContent = freeHere ? text("free") : fee === null ? text("choose_city") : currency.format(fee);
     if (waiting) return; // the total waits for the bag's prices
     total.textContent = currency.format(subtotal === null ? null : subtotal + (fee ?? 0));
     markPlaceholder(total, false);

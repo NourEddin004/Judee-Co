@@ -29,7 +29,7 @@ class StoreSummary extends Widget
 
         return [
             'newOrders' => app(OrderFigures::class)->waitingForConfirmation(),
-            'newOrdersUrl' => OrderResource::canViewAny() ? OrderResource::getUrl('index', ['activeTab' => 'new']) : null,
+            'newOrdersUrl' => OrderResource::canViewAny() ? OrderResource::getUrl('index', ['tab' => 'new']) : null,
             'products' => Product::query()->count(),
             'productsNote' => $soldOut > 0 ? trans_choice(':count color out of stock|:count colors out of stock', $soldOut) : __('All in stock'),
             'productsUrl' => ProductResource::canViewAny() ? ProductResource::getUrl() : null,

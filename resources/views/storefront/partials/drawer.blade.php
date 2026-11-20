@@ -8,6 +8,7 @@
             </div>
             <button type="button" class="ds-icon-btn" aria-label="{{ __('store.drawer.close') }}" data-modal-close>{!! icon('x') !!}</button>
         </div>
+        @include('storefront.partials.free-delivery')
         <div class="ds-drawer__body" data-bag-lines="drawer">
             <div class="ds-drawer__empty" data-bag-empty>
                 {!! icon('shopping-bag', 'ds-icon--xl') !!}

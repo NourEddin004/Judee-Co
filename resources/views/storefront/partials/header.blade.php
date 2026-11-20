@@ -21,6 +21,9 @@
                     @endforeach
                 </div>
             </div>
+            <a href="{{ store_route('track') }}" class="ds-icon-btn ds-header__phone-only" aria-label="{{ __('store.track.nav') }}" aria-haspopup="dialog" aria-controls="track-order" data-modal-open="track-order">
+                {!! icon('truck') !!}
+            </a>
             <a href="{{ store_route('cart') }}" class="ds-icon-btn" aria-label="{{ __('store.header.open_bag') }}" data-count-label="cart" aria-controls="cart-drawer" aria-expanded="false" data-modal-open="cart-drawer">
                 {!! icon('shopping-bag') !!}
                 <span class="ds-count" data-count="cart" hidden>0</span>

@@ -309,4 +309,81 @@ return [
         'TN' => 'Tunisia', 'DZ' => 'Algeria', 'MA' => 'Morocco', 'SD' => 'Sudan', 'FR' => 'France',
         'IT' => 'Italy', 'ES' => 'Spain', 'NL' => 'Netherlands', 'SE' => 'Sweden', 'AU' => 'Australia',
     ],
+
+    // Track order (2026-11-20): the menu's popup and the /track page.
+    'track' => [
+        'nav' => 'Track order',
+        'title' => 'Track your order',
+        'tab_title' => 'Track order',
+        'intro' => 'Type the order number from your receipt or confirmation page.',
+        'label' => 'Order number',
+        'placeholder' => 'e.g. K7M2QX',
+        'hint' => '6 letters and digits. You will find it at the top of your PDF receipt.',
+        'submit' => 'Track order',
+        'searching' => 'Looking for your order…',
+        'again' => 'Track another order',
+        'order' => 'Order #:number',
+        'placed' => 'Placed',
+        'items' => 'Items',
+        'total' => 'Total',
+        'city' => 'Delivering to',
+        'help' => 'Questions about your order?',
+        'contact' => 'Contact us',
+        'error_invalid' => 'Order numbers have 6 letters and digits, like K7M2QX. Please check and try again.',
+        'error_not_found' => 'We could not find an order with this number. Check it against your receipt and try again.',
+        'error_busy' => 'Too many tries. Please wait a minute and try again.',
+        'error_failed' => 'Something went wrong. Please try again.',
+        'pieces' => ':count piece|:count pieces',
+        'status' => [
+            'new' => 'Order received',
+            'confirmed' => 'Confirmed',
+            'out_for_delivery' => 'Out for delivery',
+            'delivered' => 'Delivered',
+            'cancelled' => 'Cancelled',
+        ],
+        'message' => [
+            'new' => 'We have your order and will call you soon to confirm it.',
+            'confirmed' => 'Your order is confirmed and being prepared.',
+            'out_for_delivery' => 'Your order is on its way. Please keep your phone close and have the cash ready.',
+            'delivered' => 'Your order was delivered. We hope you love it!',
+            'cancelled' => 'This order was cancelled. Contact us if you have any questions.',
+        ],
+        // The thank-you page: the receipt holds the number the customer tracks with.
+        'receipt_title' => 'Save your receipt to track your order',
+        'receipt_body' => 'Download the PDF receipt now. Its order number (#:number) lets you follow your order any time from "Track order" in the menu.',
+    ],
+
+    // "Find my size" on product pages (2026-11-20).
+    'fit' => [
+        'open' => 'Find my size',
+        'title' => 'Find my size',
+        'intro' => 'Tell us your height and weight and we will suggest a size from this product\'s size guide.',
+        'height' => 'Height',
+        'weight' => 'Weight',
+        'cm' => 'cm',
+        'kg' => 'kg',
+        'submit' => 'Show my size',
+        'result' => 'Your recommended size',
+        'exact' => 'Based on your height and weight, :size should fit you well.',
+        'closest' => ':size is the closest size for your measurements. Check the size guide or message us to be sure.',
+        'choose' => 'Choose size :size',
+        'chosen' => 'Size :size is selected.',
+        'note' => 'A suggestion only. Between two sizes? Pick the larger one for a looser fit.',
+        'invalid_height' => 'Type your height in cm, between 120 and 210.',
+        'invalid_weight' => 'Type your weight in kg, between 30 and 180.',
+        'close' => 'Close',
+    ],
+
+    // The bag's free-delivery bar (2026-11-20).
+    'free_delivery' => [
+        'away' => 'You are :amount away from free delivery',
+        'reached' => 'You have free delivery across Jordan!',
+        'rule' => 'Free delivery across Jordan on orders from :amount.',
+        'label' => 'Progress to free delivery',
+        'free' => 'Free',
+    ],
+
+    'added' => [
+        'button' => 'Added to bag',
+    ],
 ];

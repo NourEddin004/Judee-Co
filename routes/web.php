@@ -7,6 +7,7 @@ use App\Http\Controllers\Storefront\PageController;
 use App\Http\Controllers\Storefront\ProductController;
 use App\Http\Controllers\Storefront\SearchEngineController;
 use App\Http\Controllers\Storefront\ShopController;
+use App\Http\Controllers\Storefront\TrackOrderController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,8 @@ $storefront = function () {
     Route::get('/checkout', [PageController::class, 'checkout'])->name('checkout');
     Route::get('/contact', [PageController::class, 'contact'])->name('contact');
     Route::get('/terms', [PageController::class, 'terms'])->name('terms');
+    // Track an order by the number on its receipt (2026-11-20). Rate limited, so numbers cannot be guessed in bulk.
+    Route::get('/track', TrackOrderController::class)->middleware('throttle:track')->name('track');
     Route::get('/order', fn () => redirect()->to(store_route('shop')));
     Route::get('/order/{token}', [CheckoutController::class, 'confirmation'])->where('token', '[A-Za-z0-9]{1,64}')->name('confirmation');
     // The PDF receipt, by the same random token (REQ-SEC-43); making a PDF is work, so it is rate limited.
@@ -80,7 +83,7 @@ Route::get('search.html', fn () => redirect()->route('shop', request()->filled('
 | fixed page and demo address above wins.
 */
 $categories = fn () => Route::get('/{category}', [ShopController::class, 'show'])
-    ->where('category', '(?!(?:ar|admin|up|storage|build|fonts|images)$|livewire)[a-z0-9]+(?:-[a-z0-9]+)*')
+    ->where('category', '(?!(?:ar|admin|track|up|storage|build|fonts|images)$|livewire)[a-z0-9]+(?:-[a-z0-9]+)*')
     ->name('category');
 
 Route::middleware('locale')->group($categories);

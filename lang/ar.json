@@ -181,5 +181,13 @@
     "size guide": "جدول مقاسات",
     "size guides": "جداول المقاسات",
     "RafaqTech": "رفق",
-    "Designed & developed by": "تم التصميم والتطوير بواسطة"
+    "Designed & developed by": "تم التصميم والتطوير بواسطة",
+    "Add a size": "أضيفي مقاسًا",
+    "Customers type their height and weight on the product page and see the size that fits. Write the range each size fits, in cm and kg.": "تكتب الزبونة طولها ووزنها في صفحة المنتج فيظهر لها المقاس المناسب. اكتبي المدى الذي يناسبه كل مقاس، بالسنتيمتر والكيلوغرام.",
+    "Find my size: height and weight per size": "اعرفي مقاسك: الطول والوزن لكل مقاس",
+    "Height from (cm)": "الطول من (سم)",
+    "Height to (cm)": "الطول إلى (سم)",
+    "Size": "المقاس",
+    "Weight from (kg)": "الوزن من (كغ)",
+    "Weight to (kg)": "الوزن إلى (كغ)"
 }

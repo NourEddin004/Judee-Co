@@ -12,6 +12,10 @@ export const focusableSelector =
 export const text = (key, values = {}) =>
   String(config.text?.[key] ?? key).replace(/:([a-z]+)/g, (match, name) => (name in values ? String(values[name]) : match));
 
+/** Delivery inside Jordan is free from this subtotal, in JD (null: no free delivery). */
+export const freeDeliveryFrom = config.freeDeliveryFrom === null || config.freeDeliveryFrom === undefined ? null : Number(config.freeDeliveryFrom);
+export const freeDelivery = (subtotal) => freeDeliveryFrom !== null && subtotal !== null && subtotal >= freeDeliveryFrom;
+
 export const storage = {
   get(key, fallback) {
     try {

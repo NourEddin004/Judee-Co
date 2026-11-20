@@ -18,7 +18,7 @@ Language: {!! $order->language === 'ar' ? 'Arabic' : 'English' !!}
 @endforeach
 
 Subtotal: {!! \App\Support\Money::jod($order->subtotal) !!}
-Delivery: {!! \App\Support\Money::jod($order->delivery_fee) !!}
+Delivery: {!! \App\Support\Money::fee($order->delivery_fee) !!}
 Total: {!! \App\Support\Money::jod($order->total) !!}
 
 Open the order: {!! $adminUrl !!}

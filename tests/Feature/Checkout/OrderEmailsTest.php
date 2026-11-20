@@ -22,6 +22,7 @@ class OrderEmailsTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        config(['store.free_delivery_from' => null]); // the fee lines below are the flat city fee
         RateLimiter::clear('orders:127.0.0.1');
         Setting::query()->updateOrCreate(['key' => 'order_email'], ['value' => 'orders@judee.co']);
     }

@@ -150,5 +150,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         RateLimiter::for('storefront', fn (Request $request) => Limit::perMinute(60)->by($request->ip()));
+        // Order tracking: enough for a customer who mistypes, far too few to guess numbers.
+        RateLimiter::for('track', fn (Request $request) => Limit::perMinute(15)->by($request->ip()));
     }
 }

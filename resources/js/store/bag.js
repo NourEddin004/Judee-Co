@@ -1,8 +1,30 @@
 // The bag drawer, the bag page and "Add to cart" on cards.
-import { bag, bagItems, currency, subtotalOf, text } from "./core.js";
-import { onCurrencyChange, onModalOpen, refreshCounts, showToast } from "./ui.js";
+import { bag, bagItems, currency, freeDeliveryFrom, subtotalOf, text } from "./core.js";
+import { bumpBagBadge, onCurrencyChange, onModalOpen, refreshCounts, showModal, showToast } from "./ui.js";
 
 const lineTotal = (item) => currency.format(item.product.price === null ? null : item.product.price * item.qty);
+
+/** The line just added from a product page, marked in the drawer for a moment. */
+let justAdded = null;
+
+/** Free delivery in Jordan: the bar fills toward the amount and says how much is left (2026-11-20). */
+function renderFreeDelivery(items) {
+  if (freeDeliveryFrom === null) return;
+  const subtotal = subtotalOf(items);
+  document.querySelectorAll("[data-freeship]").forEach((box) => {
+    box.hidden = items.length === 0 || subtotal === null;
+    if (box.hidden) return;
+    const left = Math.max(0, freeDeliveryFrom - subtotal);
+    const percent = Math.min(100, Math.round((subtotal / freeDeliveryFrom) * 100));
+    box.classList.toggle("is-reached", left === 0);
+    box.querySelector("[data-freeship-text]").textContent =
+      left === 0 ? text("freeReached") : text("freeAway", { amount: currency.format(Math.round(left * 100) / 100) });
+    box.querySelector("[data-freeship-fill]").style.transform = `scaleX(${percent / 100})`;
+    const bar = box.querySelector("[data-freeship-bar]");
+    bar.setAttribute("aria-valuenow", String(percent));
+    bar.setAttribute("aria-valuetext", box.querySelector("[data-freeship-text]").textContent);
+  });
+}
 
 /** One bag line from the template in the page (D.5.9). */
 function renderLine(item, onPage) {
@@ -33,6 +55,7 @@ function renderLine(item, onPage) {
   if (plus.disabled) plus.setAttribute("aria-describedby", reason.id);
   node.querySelector("[data-line-remove]").setAttribute("aria-label", text("remove", { product: name }));
   node.querySelector("[data-line-total]").textContent = lineTotal(item);
+  if (!onPage && justAdded && justAdded.id === item.id && justAdded.size === (item.size ?? null)) node.classList.add("is-new");
   return node;
 }
 
@@ -135,7 +158,34 @@ export async function renderBag() {
     page.querySelector("[data-bag-pieces]").textContent = String(pieces);
   }
 
+  renderFreeDelivery(items);
+  if (justAdded) window.setTimeout(() => document.querySelectorAll(".ds-cart-line.is-new").forEach((node) => node.classList.remove("is-new")), 2200);
+  justAdded = null;
   document.dispatchEvent(new CustomEvent("bag:rendered", { detail: { items } }));
+}
+
+/**
+ * After "Add to bag" on a product page the bag drawer opens with the new line marked, so the
+ * customer sees it went in, plus how far they are from free delivery (2026-11-20).
+ */
+export function showAdded(id, size) {
+  justAdded = { id, size: size ?? null };
+  bumpBagBadge();
+  showModal("cart-drawer"); // opening it draws the bag
+}
+
+/** A card's "Add to cart" says "Added" with a tick for a moment; the drawer stays closed (REQ-DMO-34). */
+function confirmButton(button) {
+  if (button.dataset.label === undefined) button.dataset.label = button.innerHTML;
+  button.classList.add("is-added");
+  button.textContent = text("addedButton");
+  window.clearTimeout(Number(button.dataset.addedTimer));
+  button.dataset.addedTimer = String(
+    window.setTimeout(() => {
+      button.classList.remove("is-added");
+      button.innerHTML = button.dataset.label;
+    }, 1800),
+  );
 }
 
 function initBagActions() {
@@ -145,6 +195,8 @@ function initBagActions() {
     if (add && !add.disabled) {
       bag.add(Number(add.dataset.addToBag), 1);
       showToast(text("added", { product: add.dataset.name }), { opensBag: true });
+      confirmButton(add);
+      bumpBagBadge();
       renderBag();
       return;
     }

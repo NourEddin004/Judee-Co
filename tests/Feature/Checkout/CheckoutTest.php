@@ -29,6 +29,8 @@ class CheckoutTest extends TestCase
         parent::setUp();
         Notification::fake();
         RateLimiter::clear('orders:127.0.0.1');
+        // These tests check each city's own fee; free delivery from 50 JD has its own tests (NewFeaturesTest).
+        config(['store.free_delivery_from' => null]);
     }
 
     /** The checkout form as the browser sends it: one Black Wrap Set in M and two Rosemary Hijabs, to Khalda, Amman. */

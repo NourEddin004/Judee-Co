@@ -30,6 +30,7 @@
             </div>
             <aside class="ds-summary ds-summary--sticky">
                 <h2 class="ds-summary__title">{{ __('store.cart.summary') }}</h2>
+                @include('storefront.partials.free-delivery')
                 <div class="ds-summary__row"><span>{{ __('store.cart.items_label') }}</span><strong data-bag-pieces>0</strong></div>
                 <div class="ds-summary__row"><span>{{ __('store.cart.subtotal') }}</span><strong data-bag-subtotal>0 JD</strong></div>
                 <div class="ds-summary__row"><span>{{ __('store.cart.delivery') }}</span><span>{{ $fees['gulf'] === null ? __('store.cart.delivery_note_jordan', ['jordan' => \App\Support\Money::jod($fees['jordan'])]) : __('store.cart.delivery_note', ['jordan' => \App\Support\Money::jod($fees['jordan']), 'gulf' => \App\Support\Money::jod($fees['gulf'])]) }}</span></div>

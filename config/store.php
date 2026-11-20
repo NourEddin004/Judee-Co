@@ -58,6 +58,10 @@ return [
         ['key' => 'oman', 'country' => 'OM', 'name_en' => 'Oman', 'name_ar' => 'عُمان'],
     ],
 
+    // Free delivery (2026-11-20): a Jordan order whose subtotal reaches this many JD is delivered free.
+    // Gulf countries keep their own fee, since the courier there costs JUDE far more.
+    'free_delivery_from' => 50,
+
     // At most this many photos per product colour: 1 main photo and up to 3 more (REQ-CMS-10, REQ-STR-30).
     'max_photos_per_color' => 4,
 

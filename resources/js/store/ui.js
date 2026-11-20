@@ -142,6 +142,15 @@ export function refreshCounts() {
   });
 }
 
+/** The bag badge grows for a moment, so a new piece in the bag is seen (2026-11-20). */
+export function bumpBagBadge() {
+  document.querySelectorAll('[data-count="cart"]').forEach((badge) => {
+    badge.classList.remove("is-bumped");
+    void badge.offsetWidth; // restart the animation
+    badge.classList.add("is-bumped");
+  });
+}
+
 /* ---------- Prices in the chosen currency (REQ-STR-16, REQ-STR-17) ---------- */
 function applyCurrency() {
   document.querySelectorAll("[data-price]").forEach((node) => {
@@ -174,6 +183,8 @@ function initCurrency() {
     currencyListeners.forEach((listener) => listener());
   });
   applyCurrency();
+  // Prices drawn later (an order found by "Track order") follow the chosen currency too.
+  document.addEventListener("prices:changed", applyCurrency);
 }
 
 /* ---------- Back to top: after 600 px, smooth unless reduced motion (REQ-DMO-52, REQ-DMO-53) ---------- */

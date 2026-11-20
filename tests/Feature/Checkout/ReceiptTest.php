@@ -46,8 +46,8 @@ class ReceiptTest extends TestCase
         $order = $this->order();
 
         $this->get('/order/'.$order->link_token)->assertOk()
-            ->assertSee('href="'.url('/order/'.$order->link_token.'/receipt').'" class="ds-btn ds-btn--secondary ds-btn--block" download data-receipt>', false)
-            ->assertSeeInOrder(['Download receipt', 'ds-icon', 'Continue shopping'], false);
+            ->assertSee('href="'.url('/order/'.$order->link_token.'/receipt').'" class="ds-btn ds-btn--primary ds-receipt-callout__btn" download data-receipt>', false)
+            ->assertSeeInOrder(['Save your receipt to track your order', 'Download receipt', 'ds-icon', 'Continue shopping'], false);
         $this->inArabic()->get('/order/'.$order->link_token)->assertOk()
             ->assertSee('href="'.url('/order/'.$order->link_token.'/receipt').'"', false)
             ->assertSee('تنزيل الإيصال');

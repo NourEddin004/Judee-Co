@@ -32,7 +32,7 @@ class OrderStatuses extends Widget
             'statuses' => array_map(fn (OrderStatus $status) => [
                 'status' => $status,
                 'count' => $counts[$status->value],
-                'url' => OrderResource::getUrl('index', ['activeTab' => $status->value]),
+                'url' => OrderResource::getUrl('index', ['tab' => $status->value]),
             ], OrderStatus::cases()),
         ];
     }

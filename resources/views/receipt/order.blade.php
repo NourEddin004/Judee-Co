@@ -142,7 +142,7 @@
                     </tr>
                     <tr>
                         <td>{{ __('store.checkout.delivery') }}</td>
-                        <td class="amount">{!! $ltr(Money::jod($order->delivery_fee)) !!}</td>
+                        <td class="amount">{!! $ltr(Money::fee($order->delivery_fee)) !!}</td>
                     </tr>
                     <tr class="grand">
                         <td>{{ __('store.checkout.total') }}</td>

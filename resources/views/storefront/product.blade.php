@@ -7,6 +7,8 @@
     $sizes = $product->sizes;
     $categoryUrl = category_url($category?->slug);
     $guide = $sizeGuide?->table();
+    // "Find my size": only the sizes this product comes in (2026-11-20).
+    $fit = collect($sizeGuide?->fitRows() ?? [])->whereIn('size', $sizes->pluck('label')->all())->values()->all();
 @endphp
 
 @section('main')
@@ -66,6 +68,14 @@
                     {{-- A sized product cannot go in the bag without a size (REQ-STR-14, REQ-DMO-30). --}}
                     <fieldset class="ds-size-picker">
                         <legend class="ds-size-picker__legend">{{ __('store.product.size') }} @if ($guide && $guide['rows'] !== []) <a href="#size-guide" class="ds-size-picker__guide">{{ __('store.product.size_guide') }}</a> @endif</legend>
+                        @if ($fit !== [])
+                            {{-- Optional help, never a step: the customer can pick a size without it. --}}
+                            <button type="button" class="ds-fit-trigger" aria-haspopup="dialog" aria-controls="fit-finder" data-modal-open="fit-finder">
+                                {!! icon('ruler', 'ds-icon--sm') !!}
+                                <span>{{ __('store.fit.open') }}</span>
+                                <span class="ds-fit-trigger__result" hidden data-fit-badge></span>
+                            </button>
+                        @endif
                         <div class="ds-size-picker__options">
                             @foreach ($sizes as $size)
                                 <label class="ds-size-picker__option">
@@ -134,3 +144,51 @@
         </section>
     @endif
 @endsection
+
+@if ($fit !== [])
+    @push('templates')
+        <div class="ds-modal ds-modal--sheet" data-modal="fit-finder" hidden>
+            <div class="ds-sheet" id="fit-finder" role="dialog" aria-modal="true" aria-labelledby="fit-finder-title">
+                <div class="ds-sheet__head">
+                    <span class="ds-sheet__icon" aria-hidden="true">{!! icon('ruler') !!}</span>
+                    <div>
+                        <h2 class="ds-sheet__title" id="fit-finder-title">{{ __('store.fit.title') }}</h2>
+                        <p class="ds-sheet__intro">{{ __('store.fit.intro') }}</p>
+                    </div>
+                    <button type="button" class="ds-icon-btn ds-sheet__close" aria-label="{{ __('store.fit.close') }}" data-modal-close>{!! icon('x') !!}</button>
+                </div>
+                <div class="ds-sheet__body">
+                    <form class="ds-fit-form" novalidate data-fit-form>
+                        <script type="application/json" data-fit-rows>@json($fit)</script>
+                        <div class="ds-fit-form__fields">
+                            <label class="ds-fit-field">
+                                <span class="ds-fit-field__label">{{ __('store.fit.height') }}</span>
+                                <span class="ds-fit-field__box">
+                                    <input class="ds-fit-field__input" type="number" name="height" inputmode="numeric" min="120" max="210" step="1" placeholder="160" required aria-describedby="fit-height-error" data-fit-height>
+                                    <span class="ds-fit-field__unit">{{ __('store.fit.cm') }}</span>
+                                </span>
+                                <span class="ds-fit-field__error" id="fit-height-error" hidden data-fit-error="height"></span>
+                            </label>
+                            <label class="ds-fit-field">
+                                <span class="ds-fit-field__label">{{ __('store.fit.weight') }}</span>
+                                <span class="ds-fit-field__box">
+                                    <input class="ds-fit-field__input" type="number" name="weight" inputmode="numeric" min="30" max="180" step="1" placeholder="60" required aria-describedby="fit-weight-error" data-fit-weight>
+                                    <span class="ds-fit-field__unit">{{ __('store.fit.kg') }}</span>
+                                </span>
+                                <span class="ds-fit-field__error" id="fit-weight-error" hidden data-fit-error="weight"></span>
+                            </label>
+                        </div>
+                        <button type="submit" class="ds-btn ds-btn--primary ds-btn--block">{{ __('store.fit.submit') }}</button>
+                    </form>
+                    <div class="ds-fit-result" hidden aria-live="polite" data-fit-result>
+                        <p class="ds-fit-result__label">{{ __('store.fit.result') }}</p>
+                        <p class="ds-fit-result__size" data-fit-size></p>
+                        <p class="ds-fit-result__text" data-fit-text></p>
+                        <button type="button" class="ds-btn ds-btn--secondary ds-btn--block" data-fit-choose></button>
+                    </div>
+                    <p class="ds-fit-note">{{ __('store.fit.note') }}</p>
+                </div>
+            </div>
+        </div>
+    @endpush
+@endif

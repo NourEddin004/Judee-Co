@@ -8,7 +8,7 @@
 @endforeach
 
 {!! __('store.checkout.subtotal') !!}: {!! \App\Support\Money::jod($order->subtotal) !!}
-{!! __('store.checkout.delivery') !!}: {!! \App\Support\Money::jod($order->delivery_fee) !!}
+{!! __('store.checkout.delivery') !!}: {!! \App\Support\Money::fee($order->delivery_fee) !!}
 {!! __('store.checkout.total') !!}: {!! \App\Support\Money::jod($order->total) !!}
 
 {!! __('store.confirmation.deliver_to') !!}: {!! $order->customer_name !!}{!! $order->comma() !!}{!! $order->deliveryAddress() !!}
