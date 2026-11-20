@@ -486,4 +486,22 @@ class ProductAdminTest extends TestCase
 
         $this->assertNull(Product::withoutGlobalScopes()->where('slug', 'test-upload')->first());
     }
+    #[Test]
+    public function a_photo_picked_but_not_saved_yet_stays_on_screen_when_the_form_redraws(): void
+    {
+        $page = Livewire::test(CreateProduct::class);
+        $colorKey = array_key_first($page->get('data.colors'));
+        $page->call('mountAction', 'add', [], ['schemaComponent' => "form.colors.{$colorKey}.photos"])->callMountedAction();
+        $photoKey = array_key_first($page->get("data.colors.{$colorKey}.photos"));
+        $field = "data.colors.{$colorKey}.photos.{$photoKey}.path";
+        $page->set($field, [UploadedFile::fake()->image('front.jpg', 900, 1200)]);
+
+        // Adding another color redraws the form; the photo must still be there, with a preview address.
+        $page->call('mountAction', 'add', [], ['schemaComponent' => 'form.colors'])->callMountedAction();
+        $this->assertCount(2, $page->get('data.colors'));
+
+        $files = $page->instance()->callSchemaComponentMethod("form.colors.{$colorKey}.photos.{$photoKey}.path", 'getUploadedFiles');
+        $this->assertCount(1, $files);
+        $this->assertStringContainsString('preview-file', (string) collect($files)->first()['url'] ?? '');
+    }
 }

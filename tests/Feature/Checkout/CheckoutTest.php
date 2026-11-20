@@ -291,7 +291,7 @@ class CheckoutTest extends TestCase
     }
 
     #[Test]
-    public function req_chk_15_req_dmo_73_req_db_10_each_order_gets_a_unique_6_character_number_from_the_server(): void
+    public function req_chk_15_req_dmo_73_req_db_10_each_order_gets_a_unique_6_digit_number_from_the_server(): void
     {
         $this->place()->assertCreated();
         $this->place()->assertCreated();
@@ -299,7 +299,7 @@ class CheckoutTest extends TestCase
         $numbers = Order::query()->pluck('number');
         $this->assertCount(2, $numbers->unique());
         foreach ($numbers as $number) {
-            $this->assertMatchesRegularExpression('/^['.OrderNumber::ALPHABET.']{6}$/', $number);
+            $this->assertMatchesRegularExpression('/^[1-9][0-9]{5}$/', $number);   // digits only, never a leading 0
         }
     }
 

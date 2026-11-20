@@ -7,8 +7,12 @@ use Illuminate\Support\Str;
 /** Order numbers and confirmation link tokens, both made on the server. */
 final class OrderNumber
 {
-    /** No 0/O, 1/I or similar look-alikes, so a number read out on the phone is never misheard (REQ-DMO-73). */
-    public const ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    /**
+     * Order numbers are digits only (the owner's choice, 20 Nov 2026), easy to read out on the phone and
+     * to type on a phone's number pad. They never start with 0. Orders placed before keep their old
+     * letters-and-digits numbers, and both kinds are still found by Track order and the admin search.
+     */
+    public const DIGITS = '0123456789';
 
     public const LENGTH = 6;
 
@@ -17,13 +21,7 @@ final class OrderNumber
 
     public static function generate(): string
     {
-        $number = '';
-
-        for ($i = 0; $i < self::LENGTH; $i++) {
-            $number .= self::ALPHABET[random_int(0, strlen(self::ALPHABET) - 1)];
-        }
-
-        return $number;
+        return (string) random_int(10 ** (self::LENGTH - 1), 10 ** self::LENGTH - 1);
     }
 
     public static function token(): string

@@ -66,6 +66,13 @@ if [ ! -f .env ]; then
   in_php php artisan key:generate --force
 fi
 
+# On a Mac whose Desktop is kept in iCloud, macOS may move rarely used files to iCloud and leave
+# empty placeholders. Docker cannot fetch them back, so photos then show as broken images.
+# Reading every photo here makes macOS download them first.
+if [ "$(uname)" = Darwin ]; then
+  find storage/app/public -type f -exec cat {} + >/dev/null 2>&1 || true
+fi
+
 say "Starting the store and its database"
 docker compose up -d
 

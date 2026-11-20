@@ -51,7 +51,7 @@ final class ImageUpload
     /** The same checks, with storing left to the caller (the hero rack fits images first). */
     public static function base(string $name): FileUpload
     {
-        return FileUpload::make($name)
+        return ImageFileUpload::make($name)
             ->image()
             ->disk('public')
             ->visibility('public')

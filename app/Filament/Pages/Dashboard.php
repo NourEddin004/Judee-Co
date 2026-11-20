@@ -45,12 +45,12 @@ class Dashboard extends BaseDashboard
     {
         return Action::make('findOrder')->label(__('Find order'))->icon('heroicon-o-magnifying-glass')->size('sm')
             ->modalHeading(__('Find an order'))
-            ->modalDescription(__('Type the order number the customer gives you, for example K7M2QX.'))
+            ->modalDescription(__('Type the order number the customer gives you, for example 482915.'))
             ->modalSubmitActionLabel(__('Open order'))
             ->modalWidth('sm')
             ->schema([
                 TextInput::make('number')->label(__('Order number'))->required()->autofocus()
-                    ->maxLength(10)->placeholder(__('#K7M2QX'))->extraInputAttributes(['autocapitalize' => 'characters', 'autocomplete' => 'off']),
+                    ->maxLength(10)->placeholder(__('#482915'))->extraInputAttributes(['autocapitalize' => 'characters', 'autocomplete' => 'off']),
             ])
             ->action(function (array $data, Action $action) {
                 $number = OrderSearch::normalizeNumber((string) $data['number']);
@@ -58,7 +58,7 @@ class Dashboard extends BaseDashboard
 
                 if ($order === null) {
                     Notification::make()->danger()->title(__('No order with this number'))
-                        ->body(__('Check the 6 letters and digits with the customer, then try again.'))->send();
+                        ->body(__('Check the 6 digits with the customer, then try again.'))->send();
                     $action->halt();
 
                     return;
