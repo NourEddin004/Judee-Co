@@ -169,14 +169,46 @@ class OrdersAdminTest extends TestCase
     }
 
     #[Test]
-    public function orders_are_never_created_or_deleted_in_the_admin(): void
+    public function orders_are_never_created_in_the_admin(): void
+    {
+        $this->asOwner();
+
+        $this->get('/admin/orders/create')->assertNotFound();
+        $this->assertFalse(auth()->user()->can('create', Order::class));
+        $this->assertFalse(auth()->user()->can('deleteAny', Order::class));
+    }
+
+    #[Test]
+    public function the_owner_deletes_an_order_from_its_page_after_confirming(): void
     {
         $this->asOwner();
         $order = $this->order();
+        $other = $this->order();
+        $itemIds = $order->items()->pluck('id');
 
-        $this->get('/admin/orders/create')->assertNotFound();
-        $this->assertFalse(auth()->user()->can('delete', $order));
-        $this->assertFalse(auth()->user()->can('create', Order::class));
+        Livewire::test(ViewOrder::class, ['record' => $order->getRouteKey()])
+            ->mountAction('delete')
+            ->assertActionMounted('delete')
+            ->callMountedAction()
+            ->assertRedirect(OrderResource::getUrl('index'));
+
+        $this->assertModelMissing($order);
+        $this->assertSame(0, DB::table('order_items')->whereIn('id', $itemIds)->count());
+        $this->assertModelExists($other);
+        $this->assertTrue(ActivityLog::query()->where('action', 'deleted')->where('subject_id', $order->id)->exists());
+    }
+
+    #[Test]
+    public function the_delete_confirmation_reads_in_arabic(): void
+    {
+        $this->asOwner();
+        app()->setLocale('ar');
+        $order = $this->order();
+
+        Livewire::test(ViewOrder::class, ['record' => $order->getRouteKey()])
+            ->mountAction('delete')
+            ->assertMountedActionModalSee('حذف الطلب رقم '.$order->number.'؟')
+            ->assertMountedActionModalSee('نعم، احذفه');
     }
 
     #[Test]

@@ -89,7 +89,7 @@ class AdminPanelProvider extends PanelProvider
                     ->isActiveWhen(fn () => request()->routeIs('filament.admin.auth.profile'))
                     ->sort(99),
             ])
-            ->renderHook(PanelsRenderHook::HEAD_END, fn () => Blade::render("@vite('resources/css/admin.css')"))
+            ->renderHook(PanelsRenderHook::HEAD_END, fn () => Blade::render("@vite(['resources/css/admin.css', 'resources/js/admin.js'])"))
             ->renderHook(PanelsRenderHook::BODY_END, fn () => view('admin.bottom-nav'))
             // A clear way back to the dashboard from every other admin page.
             ->renderHook(PanelsRenderHook::PAGE_START, fn () => view('admin.back-to-dashboard'))

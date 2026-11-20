@@ -32,14 +32,27 @@ class AdminLocale
         return in_array($saved, SetLocale::LOCALES, true) ? $saved : 'en';
     }
 
-    /** /admin/language/ar or /admin/language/en: saves the choice and goes back to the same page. */
+    /**
+     * /admin/language/ar or /admin/language/en: saves the choice and goes back to the same page.
+     * The button sends ?back= with the address on screen, which Livewire may have changed since the
+     * page loaded; without it, the last page the browser opened. Only admin addresses are followed.
+     */
     public static function switchTo(Request $request, string $locale): RedirectResponse
     {
         abort_unless(in_array($locale, SetLocale::LOCALES, true), 404);
 
-        $back = url()->previous();
-        $back = str_starts_with($back, url('/admin')) ? $back : url('/admin');
+        $asked = $request->query('back');
+        $back = is_string($asked) && self::isAdminAddress($asked) ? $asked : url()->previous();
+        $back = self::isAdminAddress($back) && ! str_contains($back, '/admin/language/') ? $back : url('/admin');
 
         return redirect()->to($back)->withCookie(cookie(self::COOKIE, $locale, self::COOKIE_MINUTES, '/admin', null, null, true, false, 'lax'));
+    }
+
+    /** This site's /admin, or a page under it: never another site, never /administrator. */
+    private static function isAdminAddress(string $url): bool
+    {
+        $admin = url('/admin');
+
+        return $url === $admin || str_starts_with($url, $admin.'/') || str_starts_with($url, $admin.'?') || str_starts_with($url, $admin.'#');
     }
 }

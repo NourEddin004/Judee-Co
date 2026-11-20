@@ -37,6 +37,7 @@ function initForm(form) {
     submit.disabled = true;
     submit.setAttribute("aria-busy", "true");
     output.innerHTML = "";
+    delete output.dataset.drawn;
     output.classList.add("is-loading");
     output.setAttribute("data-loading-text", text("trackSearching"));
     try {
@@ -48,6 +49,7 @@ function initForm(form) {
       if (!response.ok || !body.html) throw new Error(body.message || text("trackFailed"));
       // Server-rendered and escaped by Blade, from the store's own address.
       output.innerHTML = body.html;
+      output.dataset.drawn = number; // the language switch looks the same order up again
       document.dispatchEvent(new CustomEvent("prices:changed"));
       output.querySelector(".ds-track-result")?.setAttribute("tabindex", "-1");
     } catch (failure) {

@@ -61,6 +61,17 @@ class AdminLanguageTest extends TestCase
     }
 
     #[Test]
+    public function the_switch_goes_back_to_the_address_on_screen_and_never_off_the_admin(): void
+    {
+        $this->asOwner();
+        $here = url('/admin/orders?tab=new&page=2');
+
+        $this->get('/admin/language/ar?back='.urlencode($here))->assertRedirect($here)->assertCookie(AdminLocale::COOKIE, 'ar');
+        $this->get('/admin/language/en?back='.urlencode('https://evil.example/admin'))->assertRedirect(url('/admin'));
+        $this->get('/admin/language/en?back='.urlencode(url('/administrator')))->assertRedirect(url('/admin'));
+    }
+
+    #[Test]
     public function every_admin_page_but_the_dashboard_has_a_back_button_in_both_languages(): void
     {
         $this->asOwner();

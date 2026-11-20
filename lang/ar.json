@@ -189,5 +189,10 @@
     "Height to (cm)": "الطول إلى (سم)",
     "Size": "المقاس",
     "Weight from (kg)": "الوزن من (كغ)",
-    "Weight to (kg)": "الوزن إلى (كغ)"
+    "Weight to (kg)": "الوزن إلى (كغ)",
+    "Delete order": "حذف الطلب",
+    "Delete order #:number?": "حذف الطلب رقم :number؟",
+    "The order, its items and its notes are removed for good. This cannot be undone.": "سيُحذف الطلب وقطعه وملاحظاته نهائياً، ولا يمكن التراجع عن ذلك.",
+    "Yes, delete it": "نعم، احذفه",
+    "Order deleted": "تم حذف الطلب"
 }

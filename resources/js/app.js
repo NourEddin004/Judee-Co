@@ -6,6 +6,7 @@ import { initProduct } from "./store/product.js";
 import { initCheckout } from "./store/checkout.js";
 import { initTrack } from "./store/track.js";
 import { initFit } from "./store/fit.js";
+import { initKeepPlace } from "./store/keep.js";
 
 initUi();
 initCheckout();
@@ -14,3 +15,5 @@ initShop();
 initProduct();
 initTrack();
 initFit();
+// Last, so the popups and forms it puts back are ready.
+initKeepPlace();

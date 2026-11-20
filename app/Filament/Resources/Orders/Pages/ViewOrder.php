@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Orders\Pages;
 use App\Filament\Resources\Orders\OrderResource;
 use App\Models\Order;
 use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\ViewRecord;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Contracts\Support\Htmlable;
@@ -46,6 +47,13 @@ class ViewOrder extends ViewRecord
                 ->color('gray')
                 ->authorize('view')
                 ->url(fn (Order $record) => route('filament.admin.orders.packing-slip', $record), shouldOpenInNewTab: true),   // REQ-ORD-22
+            // Owner only (OrderPolicy). Orders never take stock off a colour, so there is nothing to put back.
+            DeleteAction::make()
+                ->label(__('Delete order'))
+                ->modalHeading(fn (Order $record) => __('Delete order #:number?', ['number' => $record->number]))
+                ->modalDescription(__('The order, its items and its notes are removed for good. This cannot be undone.'))
+                ->modalSubmitActionLabel(__('Yes, delete it'))
+                ->successNotificationTitle(__('Order deleted')),
         ];
     }
 }

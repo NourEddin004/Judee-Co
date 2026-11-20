@@ -6,7 +6,8 @@ use App\Models\User;
 
 /**
  * The owner sees orders, changes their status and adds notes (SRS 3.4). Orders are created only
- * by checkout and are never deleted from the admin.
+ * by checkout. The owner can delete one order at a time from its page, after a confirmation
+ * (2026-11-20); there is no bulk delete.
  */
 class OrderPolicy
 {
@@ -37,7 +38,7 @@ class OrderPolicy
 
     public function delete(User $user): bool
     {
-        return false;
+        return $this->admin($user);
     }
 
     public function deleteAny(User $user): bool
